@@ -18,7 +18,7 @@ const mockRooms = [
     },
     {
         id: 3, price: "1,500,000đ", title: "Phòng khép kín yên tĩnh cho sinh viên",
-        distance: "1.8km từ PTIT", img: "https://images.unsplash.com/photo-1598928506311-c55dd580-c55dd580?auto=format&fit=crop&q=80&w=400&h=250",
+        distance: "1.8km từ PTIT", img: "https://images.unsplash.com/photo-1522771731472-76846d71c22d?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "Làng Yên Xá, Tân Triều",
         elec: "4,000đ", water: "120k", internet: "100k/tháng", verifiedDate: "05/09/2026",
         lat: 20.9710, lng: 105.7930,
@@ -114,7 +114,7 @@ const mockRooms = [
     },
     {
         id: 15, price: "1,800,000đ", title: "Phòng trọ giá rẻ khu vực Mỹ Đình",
-        distance: "6.5km từ PTIT", img: "https://images.unsplash.com/photo-1542361345-89e58247f2d5?auto=format&fit=crop&q=80&w=400&h=250",
+        distance: "6.5km từ PTIT", img: "https://images.unsplash.com/photo-1502672260266-1c1de2d96674?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.4, address: "Phú Đô, Nam Từ Liêm",
         elec: "4,000đ", water: "120k", internet: "Miễn phí", verifiedDate: "08/09/2026",
         lat: 21.0115, lng: 105.7663,
