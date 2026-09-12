@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My RentPlace - Nền Tảng Thuê Nhà Sinh Viên</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&subset=vietnamese&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-    <link rel="stylesheet" href="styles.css?v=10">
+    <link rel="stylesheet" href="styles.css?v=12">
     
     <!-- Google Identity Services cho Đăng nhập thật -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="sort-box" style="display:flex; align-items:center; gap:8px;">
                             <span style="color:var(--text-muted); font-size:0.9rem;">Sắp xếp:</span>
-                            <select id="sort-select" onchange="handleSort()" style="padding:10px 16px; border-radius:100px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-main); font-family:'Outfit'; outline:none; cursor:pointer;">
+                            <select id="sort-select" onchange="handleSort()" style="padding:10px 16px; border-radius:100px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-main); font-family:'Inter', sans-serif; outline:none; cursor:pointer;">
                                 <option value="default">Gợi ý nền tảng</option>
                                 <option value="price-asc">Giá: Thấp đến Cao</option>
                                 <option value="rating-desc">Đánh giá: Cao nhất</option>
@@ -127,7 +127,7 @@
             </div>
             <div style="margin-top: 20px; display:flex; flex-direction:column; gap:15px;">
                 <input type="text" id="req-phone" placeholder="Số điện thoại của bạn" style="padding:10px; border-radius:5px; border:1px solid #cbd5e1; width:100%;">
-                <textarea id="req-msg" placeholder="Lời nhắn (Ví dụ: Chào cô/chú, cháu muốn hỏi thuê phòng...)" rows="3" style="padding:10px; border-radius:5px; border:1px solid #cbd5e1; width:100%; font-family:inherit;"></textarea>
+                <textarea id="req-msg" placeholder="Lời nhắn (Ví dụ: Chào cô/chú, cháu muốn hỏi thuê phòng...)" rows="3" style="padding:10px; border-radius:5px; border:1px solid #cbd5e1; width:100%; font-family:'Inter', sans-serif;"></textarea>
                 <button onclick="submitRentalRequest()" class="book-btn" style="width:100%;">Xác Nhận Gửi Yêu Cầu</button>
             </div>
         </div>
