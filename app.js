@@ -61,14 +61,35 @@ window.onload = function () {
             client_id: GOOGLE_CLIENT_ID,
             callback: handleCredentialResponse
         });
-        google.accounts.id.renderButton(
-            document.getElementById("google-btn-wrapper"),
-            { theme: "outline", size: "large" } 
-        );
+        renderLoginButtons();
     } else {
         document.getElementById("google-btn-wrapper").innerHTML = "<p style='color:red;'>Không tải được Google SDK</p>";
     }
 };
+
+// Hàm hiển thị lại các nút Đăng nhập
+function renderLoginButtons() {
+    const authContainer = document.getElementById('auth-container');
+    authContainer.innerHTML = `
+        <div id="google-btn-wrapper"></div>
+        <span style="color: #64748b; font-size: 0.9rem;">hoặc</span>
+        <button class="guest-btn" onclick="loginAsGuest()"><i class="fa-regular fa-user"></i> Chế độ Khách</button>
+    `;
+    if(typeof google !== 'undefined') {
+        google.accounts.id.renderButton(
+            document.getElementById("google-btn-wrapper"),
+            { theme: "outline", size: "large" } 
+        );
+    }
+}
+
+// Hàm Đăng xuất
+function logout() {
+    if(typeof google !== 'undefined') {
+        google.accounts.id.disableAutoSelect(); // Ngắt auto-login của Google
+    }
+    renderLoginButtons();
+}
 
 // Hàm xử lý sau khi đăng nhập Google thành công
 function handleCredentialResponse(response) {
@@ -82,12 +103,13 @@ function handleCredentialResponse(response) {
     console.log('Image URL: ' + responsePayload.picture);
     console.log('Email: ' + responsePayload.email);
 
-    // Đổi giao diện UI: Xóa nút đăng nhập, hiển thị Avatar và Tên
+    // Đổi giao diện UI: Xóa nút đăng nhập, hiển thị Avatar và Tên cùng nút Logout
     const authContainer = document.getElementById('auth-container');
     authContainer.innerHTML = `
         <div class="user-profile">
             <img src="${responsePayload.picture}" alt="Avatar">
             <span>${responsePayload.name}</span>
+            <button onclick="logout()" title="Đăng xuất" style="background:none; border:none; color:var(--danger); cursor:pointer; margin-left:8px; font-size:1.1rem;"><i class="fa-solid fa-power-off"></i></button>
         </div>
     `;
 }
@@ -109,6 +131,7 @@ function loginAsGuest() {
         <div class="user-profile">
             <img src="https://ui-avatars.com/api/?name=Khách&background=cbd5e1&color=fff" alt="Avatar">
             <span>Khách truy cập</span>
+            <button onclick="logout()" title="Đăng xuất" style="background:none; border:none; color:var(--danger); cursor:pointer; margin-left:8px; font-size:1.1rem;"><i class="fa-solid fa-power-off"></i></button>
         </div>
     `;
 }
