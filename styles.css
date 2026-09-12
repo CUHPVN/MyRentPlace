@@ -227,6 +227,7 @@ body {
     background: var(--bg-card); padding: 12px 20px; border-radius: 100px;
     border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px;
+    color: var(--text-main);
 }
 .locate-btn:hover { background: var(--bg-color); }
 
