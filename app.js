@@ -2,7 +2,7 @@
 const mockRooms = [
     {
         id: 1, price: "1,800,000đ", title: "Phòng trọ tiện nghi tại Triều Khúc",
-        distance: "1.5km từ PTIT", img: "https://images.unsplash.com/photo-1502672260266-1c1de2d96674?auto=format&fit=crop&q=80&w=400&h=250",
+        distance: "1.5km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.1, address: "Triều Khúc, Thanh Xuân",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "02/09/2026",
         lat: 20.9782, lng: 105.7985,
@@ -66,7 +66,7 @@ const mockRooms = [
     },
     {
         id: 9, price: "2,000,000đ", title: "Phòng trọ tiện nghi tại Thanh Xuân Bắc",
-        distance: "3km từ PTIT", img: "https://images.unsplash.com/photo-1502672260266-1c1de2d96674?auto=format&fit=crop&q=80&w=400&h=250",
+        distance: "3km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.9, address: "Thanh Xuân Bắc, Thanh Xuân",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "10/09/2026",
         lat: 20.9902, lng: 105.8055,
@@ -130,7 +130,7 @@ const mockRooms = [
     },
     {
         id: 17, price: "2,900,000đ", title: "Phòng trọ tiện nghi tại Quan Hoa",
-        distance: "7.2km từ PTIT", img: "https://images.unsplash.com/photo-1502672260266-1c1de2d96674?auto=format&fit=crop&q=80&w=400&h=250",
+        distance: "7.2km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.7, address: "Quan Hoa, Cầu Giấy",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "18/09/2026",
         lat: 21.0325, lng: 105.7985,
@@ -194,7 +194,7 @@ const mockRooms = [
     },
     {
         id: 25, price: "3,000,000đ", title: "Phòng trọ tiện nghi tại Đội Cấn",
-        distance: "8.5km từ PTIT", img: "https://images.unsplash.com/photo-1502672260266-1c1de2d96674?auto=format&fit=crop&q=80&w=400&h=250",
+        distance: "8.5km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "Đội Cấn, Ba Đình",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "26/09/2026",
         lat: 21.0355, lng: 105.818,
@@ -258,7 +258,7 @@ const mockRooms = [
     },
     {
         id: 33, price: "1,800,000đ", title: "Phòng trọ tiện nghi tại Phú Đô",
-        distance: "6.5km từ PTIT", img: "https://images.unsplash.com/photo-1502672260266-1c1de2d96674?auto=format&fit=crop&q=80&w=400&h=250",
+        distance: "6.5km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.3, address: "Phú Đô, Nam Từ Liêm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "06/09/2026",
         lat: 21.0105, lng: 105.768,
