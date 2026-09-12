@@ -306,21 +306,36 @@ let savedRooms = JSON.parse(localStorage.getItem('savedRooms') || '[]');
 
 // --- GOOGLE IDENTITY SERVICES (ĐĂNG NHẬP THẬT) ---
 window.onload = function () {
-    // Render Danh sách và Map ban đầu
     renderHomeList();
     initMap();
 
-    // Khởi tạo Google GSI
-    // LƯU Ý: THAY THẾ MÃ CLIENT_ID DƯỚI ĐÂY BẰNG MÃ CỦA BẠN TỪ GOOGLE CLOUD CONSOLE
     const GOOGLE_CLIENT_ID = "212798554667-taq34omvlal7l0dkmmen80m7aog9brh6.apps.googleusercontent.com"; 
-    
     if(typeof google !== 'undefined') {
         google.accounts.id.initialize({
             client_id: GOOGLE_CLIENT_ID,
             callback: handleCredentialResponse
         });
-        renderLoginButtons();
+    }
+    
+    if (currentUser) {
+        renderUserProfile(currentUser);
     } else {
+        renderLoginButtons();
+    }
+}
+
+function renderUserProfile(user) {
+    const authContainer = document.getElementById('auth-container');
+    authContainer.innerHTML = `
+        <div class="user-profile">
+            <img src="${user.picture}" alt="Avatar">
+            <span>${user.name}</span>
+            <button onclick="logout()" title="Đăng xuất" style="background:none; border:none; color:var(--danger); cursor:pointer; margin-left:8px; font-size:1.1rem;"><i class="fa-solid fa-power-off"></i></button>
+        </div>
+    `;
+    document.getElementById("saved-rooms-btn").style.display = "inline-block";
+    document.getElementById("history-btn").style.display = "inline-block";
+} else {
         document.getElementById("google-btn-wrapper").innerHTML = "<p style='color:red;'>Không tải được Google SDK</p>";
     document.getElementById("saved-rooms-btn").style.display = "none";
     }
@@ -344,11 +359,14 @@ function renderLoginButtons() {
 
 // Hàm Đăng xuất
 function logout() {
+    currentUser = null;
+    localStorage.removeItem('currentUser');
     if(typeof google !== 'undefined') {
-        google.accounts.id.disableAutoSelect(); // Ngắt auto-login của Google
+        google.accounts.id.disableAutoSelect();
     }
     renderLoginButtons();
     document.getElementById("saved-rooms-btn").style.display = "none";
+    document.getElementById("history-btn").style.display = "none";
 }
 
 // Hàm xử lý sau khi đăng nhập Google thành công
@@ -356,6 +374,8 @@ function handleCredentialResponse(response) {
     // response.credential là chuỗi JWT chứa thông tin user
     // Giải mã JWT (đơn giản bằng cách parse base64 payload)
     const responsePayload = decodeJwtResponse(response.credential);
+    currentUser = { name: responsePayload.name, picture: responsePayload.picture, type: 'google' };
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
     console.log("ID: " + responsePayload.sub);
     console.log('Full Name: ' + responsePayload.name);
@@ -364,15 +384,7 @@ function handleCredentialResponse(response) {
     console.log('Email: ' + responsePayload.email);
 
     // Đổi giao diện UI: Xóa nút đăng nhập, hiển thị Avatar và Tên cùng nút Logout
-    const authContainer = document.getElementById('auth-container');
-    authContainer.innerHTML = `
-        <div class="user-profile">
-            <img src="${responsePayload.picture}" alt="Avatar">
-            <span>${responsePayload.name}</span>
-            <button onclick="logout()" title="Đăng xuất" style="background:none; border:none; color:var(--danger); cursor:pointer; margin-left:8px; font-size:1.1rem;"><i class="fa-solid fa-power-off"></i></button>
-        </div>
-    `;
-    document.getElementById("saved-rooms-btn").style.display = "inline-block";
+    renderUserProfile(currentUser);
 }
 
 // Hàm giải mã JWT (chỉ dùng cho Frontend demo)
@@ -387,15 +399,9 @@ function decodeJwtResponse(token) {
 
 // Hàm xử lý Đăng nhập Ẩn danh (Chế độ Khách)
 function loginAsGuest() {
-    const authContainer = document.getElementById('auth-container');
-    authContainer.innerHTML = `
-        <div class="user-profile">
-            <img src="https://ui-avatars.com/api/?name=Khách&background=cbd5e1&color=fff" alt="Avatar">
-            <span>Khách truy cập</span>
-            <button onclick="logout()" title="Đăng xuất" style="background:none; border:none; color:var(--danger); cursor:pointer; margin-left:8px; font-size:1.1rem;"><i class="fa-solid fa-power-off"></i></button>
-        </div>
-    `;
-    document.getElementById("saved-rooms-btn").style.display = "inline-block";
+    currentUser = { name: 'Khách truy cập', picture: 'https://ui-avatars.com/api/?name=Khách&background=cbd5e1&color=fff', type: 'guest' };
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    renderUserProfile(currentUser);
 }
 
 // --- RENDER DỮ LIỆU ---

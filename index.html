@@ -32,6 +32,7 @@
             </div>
 
             <div class="header-actions">
+                <button id="history-btn" class="nav-btn" style="display:none;" onclick="openHistory()"><i class="fa-solid fa-clock-rotate-left" style="color:#3b82f6;"></i> Đã liên hệ</button>
                 <button id="saved-rooms-btn" class="nav-btn" style="display:none;" onclick="openSavedRooms()"><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Phòng đã lưu</button>
                 <button class="nav-btn" onclick="openBlacklist()"><i class="fa-solid fa-shield-halved"></i> Tra cứu lừa đảo</button>
                 <div id="auth-container" style="display: flex; align-items: center; gap: 10px;">
@@ -102,6 +103,34 @@
             </div>
             <div id="saved-list-container" class="grid-listing" style="margin-top:20px; grid-template-columns: 1fr;">
                 <!-- JS sẽ tự đổ danh sách phòng đã lưu -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FORM YÊU CẦU THUÊ -->
+    <div id="request-modal" class="modal hidden">
+        <div class="modal-content" style="max-width: 400px;">
+            <button class="close-btn" onclick="closeModal('request-modal')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="blacklist-header">
+                <h2><i class="fa-solid fa-paper-plane" style="color:#2563eb;"></i> Gửi Liên Hệ Cho Chủ Nhà</h2>
+            </div>
+            <div style="margin-top: 20px; display:flex; flex-direction:column; gap:15px;">
+                <input type="text" id="req-phone" placeholder="Số điện thoại của bạn" style="padding:10px; border-radius:5px; border:1px solid #cbd5e1; width:100%;">
+                <textarea id="req-msg" placeholder="Lời nhắn (Ví dụ: Chào cô/chú, cháu muốn hỏi thuê phòng...)" rows="3" style="padding:10px; border-radius:5px; border:1px solid #cbd5e1; width:100%; font-family:inherit;"></textarea>
+                <button onclick="submitRentalRequest()" class="book-btn" style="width:100%;">Xác Nhận Gửi Yêu Cầu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL LỊCH SỬ LIÊN HỆ -->
+    <div id="history-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('history-modal')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="blacklist-header">
+                <h2><i class="fa-solid fa-clock-rotate-left" style="color:#3b82f6;"></i> Phòng Trọ Đã Liên Hệ</h2>
+            </div>
+            <div id="history-list-container" class="grid-listing" style="margin-top:20px; grid-template-columns: 1fr;">
+                <!-- JS sẽ đổ ds -->
             </div>
         </div>
     </div>
