@@ -10,7 +10,7 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-    <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="styles.css?v=13">
     
     <!-- Google Identity Services cho Đăng nhập thật -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -51,7 +51,7 @@
             <section class="left-panel">
                 <div class="panel-header">
                     <h2>Hơn 500+ phòng trọ an toàn cho sinh viên</h2>
-                    <div class="filters-container" style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 30px;">
+                    <div class="filters-container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 16px; margin-bottom: 30px;">
                         <div class="filters">
                             <button id="filter-all" class="active" onclick="handleFilter('all')">Tất cả</button>
                             <button id="filter-verified" onclick="handleFilter('verified')"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Tick Xanh</button>
