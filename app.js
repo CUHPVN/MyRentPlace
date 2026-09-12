@@ -586,9 +586,23 @@ function locateUser() {
 
 // --- TÍNH NĂNG MỚI (TÌM KIẾM, LỌC, LƯU PHÒNG) ---
 
+function removeVietnameseTones(str) {
+    if (!str) return "";
+    return str.normalize('NFD')
+              .replace(/[\u0300-\u036f]/g, '')
+              .replace(/đ/g, 'd').replace(/Đ/g, 'D');
+}
+
 function handleSearch() {
-    const keyword = document.getElementById("main-search-input").value.toLowerCase();
-    currentRooms = mockRooms.filter(r => r.title.toLowerCase().includes(keyword) || r.address.toLowerCase().includes(keyword));
+    const rawKeyword = document.getElementById("main-search-input").value;
+    const keyword = removeVietnameseTones(rawKeyword).toLowerCase().trim();
+    
+    currentRooms = mockRooms.filter(r => {
+        const titleNormalized = removeVietnameseTones(r.title).toLowerCase();
+        const addressNormalized = removeVietnameseTones(r.address).toLowerCase();
+        return titleNormalized.includes(keyword) || addressNormalized.includes(keyword);
+    });
+    
     renderHomeList(currentRooms);
     renderMapMarkers(currentRooms);
 }
