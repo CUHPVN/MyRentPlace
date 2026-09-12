@@ -1,32 +1,74 @@
 // --- DỮ LIỆU GIẢ LẬP (MOCK DATA) ---
 const mockRooms = [
     {
-        id: 1, price: "1,800,000đ", title: "Studio ban công thoáng mát tại Trần Phú",
+        id: 1, price: "1,800,000đ", title: "Studio ban công thoáng mát tại Ao Sen",
         distance: "500m từ PTIT", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
-        rating: 4.9, address: "Ngõ 12, Trần Phú, Hà Đông",
+        rating: 4.9, address: "Ngõ 12, Ao Sen, Hà Đông",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "10/09/2026",
-        lat: 20.9806, lng: 105.7877
+        lat: 20.9790, lng: 105.7860
     },
     {
         id: 2, price: "2,200,000đ", title: "Phòng trọ mới xây, full đồ, giờ giấc tự do",
         distance: "1.2km từ PTIT", img: "https://images.unsplash.com/photo-1502672260266-1c1de2d96674?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.7, address: "KĐT Mỗ Lao, Hà Đông",
         elec: "3,800đ", water: "80k", internet: "50k/tháng", verifiedDate: "12/09/2026",
-        lat: 20.9830, lng: 105.7810
+        lat: 20.9820, lng: 105.7830
     },
     {
         id: 3, price: "1,500,000đ", title: "Phòng khép kín giá rẻ cho sinh viên năm nhất",
-        distance: "800m từ PTIT", img: "https://images.unsplash.com/photo-1598928506311-c55dd580-c55dd580?auto=format&fit=crop&q=80&w=400&h=250",
+        distance: "1.5km từ PTIT", img: "https://images.unsplash.com/photo-1598928506311-c55dd580-c55dd580?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "Triều Khúc, Thanh Xuân",
         elec: "4,000đ", water: "120k", internet: "100k/tháng", verifiedDate: "05/09/2026",
         lat: 20.9780, lng: 105.7950
     },
     {
         id: 4, price: "2,500,000đ", title: "Căn hộ dịch vụ mini an ninh tốt",
-        distance: "2km từ PTIT", img: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&q=80&w=400&h=250",
+        distance: "1km từ PTIT", img: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.8, address: "Văn Quán, Hà Đông",
         elec: "3,500đ", water: "Miễn phí", internet: "100k/tháng", verifiedDate: "01/09/2026",
-        lat: 20.9750, lng: 105.7900
+        lat: 20.9760, lng: 105.7910
+    },
+    {
+        id: 5, price: "1,200,000đ", title: "Phòng gác xép nhỏ nhắn gần trường",
+        distance: "300m từ PTIT", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=400&h=250",
+        rating: 4.3, address: "Ngõ 1, Trần Phú, Hà Đông",
+        elec: "3,500đ", water: "70k", internet: "Chia đều", verifiedDate: "11/09/2026",
+        lat: 20.9815, lng: 105.7885
+    },
+    {
+        id: 6, price: "3,000,000đ", title: "Chung cư mini cao cấp (ở được 3 người)",
+        distance: "2.5km từ PTIT", img: "https://images.unsplash.com/photo-1522771731472-76846d71c22d?auto=format&fit=crop&q=80&w=400&h=250",
+        rating: 4.9, address: "Phùng Khoang, Nam Từ Liêm",
+        elec: "3,500đ", water: "100k/người", internet: "150k", verifiedDate: "09/09/2026",
+        lat: 20.9850, lng: 105.7960
+    },
+    {
+        id: 7, price: "1,900,000đ", title: "Phòng trọ yên tĩnh, có chỗ để xe free",
+        distance: "800m từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
+        rating: 4.6, address: "Làng Việt Kiều Châu Âu, Hà Đông",
+        elec: "3,800đ", water: "80k", internet: "Miễn phí", verifiedDate: "08/09/2026",
+        lat: 20.9740, lng: 105.7850
+    },
+    {
+        id: 8, price: "2,100,000đ", title: "Nhà trọ sinh viên, camera an ninh 24/7",
+        distance: "1.8km từ PTIT", img: "https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&q=80&w=400&h=250",
+        rating: 4.8, address: "Thanh Bình, Mỗ Lao",
+        elec: "3,500đ", water: "100k", internet: "70k/tháng", verifiedDate: "06/09/2026",
+        lat: 20.9785, lng: 105.7800
+    },
+    {
+        id: 9, price: "1,600,000đ", title: "Phòng chung chủ, giờ giấc thoải mái",
+        distance: "600m từ PTIT", img: "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&q=80&w=400&h=250",
+        rating: 4.4, address: "Ngõ C5 Trần Phú, Hà Đông",
+        elec: "Giá nhà nước", water: "Giá nhà nước", internet: "50k", verifiedDate: "13/09/2026",
+        lat: 20.9795, lng: 105.7890
+    },
+    {
+        id: 10, price: "3,500,000đ", title: "Căn hộ Studio full nội thất đẹp như hình",
+        distance: "2km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
+        rating: 5.0, address: "Xa La, Hà Đông",
+        elec: "3,500đ", water: "Miễn phí", internet: "Miễn phí", verifiedDate: "12/09/2026",
+        lat: 20.9650, lng: 105.7950
     }
 ];
 
