@@ -10,7 +10,7 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-    <link rel="stylesheet" href="styles.css?v=6">
+    <link rel="stylesheet" href="styles.css?v=7">
     
     <!-- Google Identity Services cho Đăng nhập thật -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -51,11 +51,21 @@
             <section class="left-panel">
                 <div class="panel-header">
                     <h2>Hơn 500+ phòng trọ an toàn cho sinh viên</h2>
-                    <div class="filters">
-                        <button id="filter-all" class="active" onclick="handleFilter('all')">Tất cả</button>
-                        <button id="filter-verified" onclick="handleFilter('verified')"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Chỉ hiện phòng có Tick Xanh</button>
-                        <button id="filter-cheap" onclick="handleFilter('cheap')">Dưới 2.5 Triệu</button>
-                        <button id="filter-near" onclick="handleFilter('near')">Dưới 3km từ PTIT</button>
+                    <div class="filters-container" style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 30px;">
+                        <div class="filters">
+                            <button id="filter-all" class="active" onclick="handleFilter('all')">Tất cả</button>
+                            <button id="filter-verified" onclick="handleFilter('verified')"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Tick Xanh</button>
+                            <button id="filter-cheap" onclick="handleFilter('cheap')">Dưới 2.5 Triệu</button>
+                            <button id="filter-near" onclick="handleFilter('near')">Gần PTIT</button>
+                        </div>
+                        <div class="sort-box" style="display:flex; align-items:center; gap:8px;">
+                            <span style="color:var(--text-muted); font-size:0.9rem;">Sắp xếp:</span>
+                            <select id="sort-select" onchange="handleSort()" style="padding:10px 16px; border-radius:100px; border:1px solid var(--border-color); background:var(--bg-card); color:var(--text-main); font-family:'Outfit'; outline:none; cursor:pointer;">
+                                <option value="default">Gợi ý nền tảng</option>
+                                <option value="price-asc">Giá: Thấp đến Cao</option>
+                                <option value="rating-desc">Đánh giá: Cao nhất</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -138,6 +148,6 @@
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="app.js?v=5"></script>
+    <script src="app.js?v=6"></script>
 </body>
 </html>
