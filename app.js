@@ -23,7 +23,8 @@ const mockRooms = [
         distance: "1.5km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.1, address: "Số 82, Ngõ 29 Triều Khúc, Thanh Xuân",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "02/09/2026",
-        lat: 20.9825, lng: 105.796,, area: "27m2", parking: "80k/tháng", cleaning: "Miễn phí"
+        lat: 20.9825, lng: 105.796,
+        area: "27m2", parking: "80k/tháng", cleaning: "Miễn phí",
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -31,7 +32,8 @@ const mockRooms = [
         distance: "1.2km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.2, address: "Nhà 95, Ngách 71/5 Mỗ Lao, Hà Đông",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "03/09/2026",
-        lat: 20.982, lng: 105.782,, area: "34m2", parking: "100k/tháng", cleaning: "Miễn phí"
+        lat: 20.982, lng: 105.782,
+        area: "34m2", parking: "100k/tháng", cleaning: "Miễn phí",
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -39,7 +41,8 @@ const mockRooms = [
         distance: "1.8km từ PTIT", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.3, address: "Số 29, Ngõ 36 Yên Xá, Tân Triều",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "04/09/2026",
-        lat: 20.971, lng: 105.787,, area: "22m2", parking: "100k/tháng", cleaning: "Miễn phí"
+        lat: 20.971, lng: 105.787,
+        area: "22m2", parking: "100k/tháng", cleaning: "Miễn phí",
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -47,7 +50,8 @@ const mockRooms = [
         distance: "1km từ PTIT", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.4, address: "Toà nhà số 87, Đường Văn Quán, Hà Đông",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "05/09/2026",
-        lat: 20.978, lng: 105.788,, area: "23m2", parking: "80k/tháng", cleaning: "100k/phòng"
+        lat: 20.978, lng: 105.788,
+        area: "23m2", parking: "80k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -55,7 +59,8 @@ const mockRooms = [
         distance: "2km từ PTIT", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "SN 12, Hẻm 152/2 Xa La, Hà Đông",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "06/09/2026",
-        lat: 20.966, lng: 105.785,, area: "36m2", parking: "Miễn phí", cleaning: "100k/phòng"
+        lat: 20.966, lng: 105.785,
+        area: "36m2", parking: "Miễn phí", cleaning: "100k/phòng",
         verifiedBy: "Công an Phường"
     },
     {
@@ -63,7 +68,8 @@ const mockRooms = [
         distance: "2.5km từ PTIT", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.6, address: "Số 5, Ngõ 8 Phùng Khoang, Nam Từ Liêm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "07/09/2026",
-        lat: 20.989, lng: 105.792,, area: "30m2", parking: "100k/tháng", cleaning: "50k/người"
+        lat: 20.989, lng: 105.792,
+        area: "30m2", parking: "100k/tháng", cleaning: "50k/người",
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -71,7 +77,8 @@ const mockRooms = [
         distance: "3.5km từ PTIT", img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.7, address: "Toà nhà số 28, Đường Thượng Đình, Thanh Xuân",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "08/09/2026",
-        lat: 20.998, lng: 105.811,, area: "38m2", parking: "100k/tháng", cleaning: "50k/người"
+        lat: 20.998, lng: 105.811,
+        area: "38m2", parking: "100k/tháng", cleaning: "50k/người",
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -79,7 +86,8 @@ const mockRooms = [
         distance: "4km từ PTIT", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.8, address: "Toà nhà số 78, Đường Khương Trung, Thanh Xuân",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "09/09/2026",
-        lat: 20.999, lng: 105.817,, area: "41m2", parking: "80k/tháng", cleaning: "100k/phòng"
+        lat: 20.999, lng: 105.817,
+        area: "41m2", parking: "80k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -87,7 +95,8 @@ const mockRooms = [
         distance: "3km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.9, address: "Toà nhà số 26, Đường Thanh Xuân Bắc, Thanh Xuân",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "10/09/2026",
-        lat: 20.992, lng: 105.8,, area: "21m2", parking: "100k/tháng", cleaning: "50k/người"
+        lat: 20.992, lng: 105.8,
+        area: "21m2", parking: "100k/tháng", cleaning: "50k/người",
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -95,7 +104,8 @@ const mockRooms = [
         distance: "6km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.0, address: "SN 54, Hẻm 57/2 Chùa Láng, Đống Đa",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "11/09/2026",
-        lat: 21.022, lng: 105.802,, area: "36m2", parking: "100k/tháng", cleaning: "100k/phòng"
+        lat: 21.022, lng: 105.802,
+        area: "36m2", parking: "100k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Công an Phường"
     },
     {
@@ -103,7 +113,8 @@ const mockRooms = [
         distance: "5.5km từ PTIT", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.1, address: "Số 76, Ngõ 72 Thái Hà, Đống Đa",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "12/09/2026",
-        lat: 21.011, lng: 105.82,, area: "25m2", parking: "Miễn phí", cleaning: "100k/phòng"
+        lat: 21.011, lng: 105.82,
+        area: "25m2", parking: "Miễn phí", cleaning: "100k/phòng",
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -111,7 +122,8 @@ const mockRooms = [
         distance: "6.2km từ PTIT", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.2, address: "SN 98, Hẻm 41/2 Xã Đàn, Đống Đa",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "13/09/2026",
-        lat: 21.016, lng: 105.833,, area: "31m2", parking: "Miễn phí", cleaning: "50k/người"
+        lat: 21.016, lng: 105.833,
+        area: "31m2", parking: "Miễn phí", cleaning: "50k/người",
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -119,7 +131,8 @@ const mockRooms = [
         distance: "7km từ PTIT", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.3, address: "Nhà 44, Ngách 72/5 Cát Linh, Đống Đa",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "14/09/2026",
-        lat: 21.028, lng: 105.829,, area: "25m2", parking: "80k/tháng", cleaning: "Miễn phí"
+        lat: 21.028, lng: 105.829,
+        area: "25m2", parking: "80k/tháng", cleaning: "Miễn phí",
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -127,7 +140,8 @@ const mockRooms = [
         distance: "7.5km từ PTIT", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.4, address: "Số 28A, Ngõ 196 Dịch Vọng Hậu, Cầu Giấy",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "15/09/2026",
-        lat: 21.037, lng: 105.79,, area: "23m2", parking: "Miễn phí", cleaning: "50k/người"
+        lat: 21.037, lng: 105.79,
+        area: "23m2", parking: "Miễn phí", cleaning: "50k/người",
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -135,7 +149,8 @@ const mockRooms = [
         distance: "8.5km từ PTIT", img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "SN 14, Hẻm 24/2 Nghĩa Tân, Cầu Giấy",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "16/09/2026",
-        lat: 21.043, lng: 105.795,, area: "21m2", parking: "120k/tháng", cleaning: "100k/phòng"
+        lat: 21.043, lng: 105.795,
+        area: "21m2", parking: "120k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Công an Phường"
     },
     {
@@ -143,7 +158,8 @@ const mockRooms = [
         distance: "6.5km từ PTIT", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.6, address: "Số 13A, Ngõ 92 Yên Hòa, Cầu Giấy",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "17/09/2026",
-        lat: 21.019, lng: 105.796,, area: "17m2", parking: "80k/tháng", cleaning: "100k/phòng"
+        lat: 21.019, lng: 105.796,
+        area: "17m2", parking: "80k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -151,7 +167,8 @@ const mockRooms = [
         distance: "7.2km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.7, address: "Số 78, Ngõ 68 Quan Hoa, Cầu Giấy",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "18/09/2026",
-        lat: 21.033, lng: 105.8,, area: "43m2", parking: "100k/tháng", cleaning: "100k/phòng"
+        lat: 21.033, lng: 105.8,
+        area: "43m2", parking: "100k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -159,7 +176,8 @@ const mockRooms = [
         distance: "8km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.8, address: "Toà nhà số 94, Đường Tạ Quang Bửu, Hai Bà Trưng",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "19/09/2026",
-        lat: 21.004, lng: 105.845,, area: "29m2", parking: "Miễn phí", cleaning: "50k/người"
+        lat: 21.004, lng: 105.845,
+        area: "29m2", parking: "Miễn phí", cleaning: "50k/người",
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -167,7 +185,8 @@ const mockRooms = [
         distance: "9km từ PTIT", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.9, address: "Số 16, Ngõ 97 Minh Khai, Hai Bà Trưng",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "20/09/2026",
-        lat: 20.998, lng: 105.855,, area: "19m2", parking: "100k/tháng", cleaning: "100k/phòng"
+        lat: 20.998, lng: 105.855,
+        area: "19m2", parking: "100k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -175,7 +194,8 @@ const mockRooms = [
         distance: "9.5km từ PTIT", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.0, address: "Toà nhà số 71, Đường Lò Đúc, Hai Bà Trưng",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "21/09/2026",
-        lat: 21.015, lng: 105.855,, area: "20m2", parking: "80k/tháng", cleaning: "100k/phòng"
+        lat: 21.015, lng: 105.855,
+        area: "20m2", parking: "80k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Công an Phường"
     },
     {
@@ -183,7 +203,8 @@ const mockRooms = [
         distance: "10km từ PTIT", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.1, address: "Phố Cổ, Hoàn Kiếm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "22/09/2026",
-        lat: 21.031, lng: 105.851,, area: "44m2", parking: "100k/tháng", cleaning: "100k/phòng"
+        lat: 21.031, lng: 105.851,
+        area: "44m2", parking: "100k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -191,7 +212,8 @@ const mockRooms = [
         distance: "9.8km từ PTIT", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.2, address: "Số 74, Ngõ 50 Tràng Thi, Hoàn Kiếm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "23/09/2026",
-        lat: 21.026, lng: 105.849,, area: "36m2", parking: "100k/tháng", cleaning: "Miễn phí"
+        lat: 21.026, lng: 105.849,
+        area: "36m2", parking: "100k/tháng", cleaning: "Miễn phí",
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -199,7 +221,8 @@ const mockRooms = [
         distance: "9km từ PTIT", img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.3, address: "Nhà 6, Ngách 170/5 Xuân La, Tây Hồ",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "24/09/2026",
-        lat: 21.056, lng: 105.806,, area: "18m2", parking: "Miễn phí", cleaning: "Miễn phí"
+        lat: 21.056, lng: 105.806,
+        area: "18m2", parking: "Miễn phí", cleaning: "Miễn phí",
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -207,7 +230,8 @@ const mockRooms = [
         distance: "11km từ PTIT", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.4, address: "Số 99, Ngõ 75 Quảng An, Tây Hồ",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "25/09/2026",
-        lat: 21.0682, lng: 105.8239,, area: "30m2", parking: "80k/tháng", cleaning: "Miễn phí"
+        lat: 21.0682, lng: 105.8239,
+        area: "30m2", parking: "80k/tháng", cleaning: "Miễn phí",
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -215,7 +239,8 @@ const mockRooms = [
         distance: "8.5km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "Số 110, Ngõ 60 Đội Cấn, Ba Đình",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "26/09/2026",
-        lat: 21.035, lng: 105.817,, area: "44m2", parking: "80k/tháng", cleaning: "100k/phòng"
+        lat: 21.035, lng: 105.817,
+        area: "44m2", parking: "80k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Công an Phường"
     },
     {
@@ -223,7 +248,8 @@ const mockRooms = [
         distance: "8.8km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.6, address: "SN 49, Hẻm 72/2 Kim Mã, Ba Đình",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "27/09/2026",
-        lat: 21.03, lng: 105.82,, area: "17m2", parking: "100k/tháng", cleaning: "50k/người"
+        lat: 21.03, lng: 105.82,
+        area: "17m2", parking: "100k/tháng", cleaning: "50k/người",
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -231,7 +257,8 @@ const mockRooms = [
         distance: "7km từ PTIT", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.7, address: "Nhà 82, Ngách 94/5 Giải Phóng, Hoàng Mai",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "28/09/2026",
-        lat: 20.985, lng: 105.841,, area: "34m2", parking: "Miễn phí", cleaning: "50k/người"
+        lat: 20.985, lng: 105.841,
+        area: "34m2", parking: "Miễn phí", cleaning: "50k/người",
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -239,7 +266,8 @@ const mockRooms = [
         distance: "8.5km từ PTIT", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.8, address: "Nhà 48, Ngách 91/5 Lĩnh Nam, Hoàng Mai",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "01/09/2026",
-        lat: 20.976, lng: 105.867,, area: "25m2", parking: "100k/tháng", cleaning: "100k/phòng"
+        lat: 20.976, lng: 105.867,
+        area: "25m2", parking: "100k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -247,7 +275,8 @@ const mockRooms = [
         distance: "12km từ PTIT", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.9, address: "Số 86, Ngõ 69 Ngọc Lâm, Long Biên",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "02/09/2026",
-        lat: 21.046, lng: 105.875,, area: "27m2", parking: "100k/tháng", cleaning: "Miễn phí"
+        lat: 21.046, lng: 105.875,
+        area: "27m2", parking: "100k/tháng", cleaning: "Miễn phí",
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -255,7 +284,8 @@ const mockRooms = [
         distance: "13km từ PTIT", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.0, address: "Aeon Mall, Long Biên",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "03/09/2026",
-        lat: 21.027, lng: 105.897,, area: "35m2", parking: "100k/tháng", cleaning: "50k/người"
+        lat: 21.027, lng: 105.897,
+        area: "35m2", parking: "100k/tháng", cleaning: "50k/người",
         verifiedBy: "Công an Phường"
     },
     {
@@ -263,7 +293,8 @@ const mockRooms = [
         distance: "8.5km từ PTIT", img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.1, address: "Nhà 22, Ngách 137/5 Tây Mỗ, Nam Từ Liêm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "04/09/2026",
-        lat: 21.003, lng: 105.748,, area: "23m2", parking: "80k/tháng", cleaning: "Miễn phí"
+        lat: 21.003, lng: 105.748,
+        area: "23m2", parking: "80k/tháng", cleaning: "Miễn phí",
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -271,7 +302,8 @@ const mockRooms = [
         distance: "9.5km từ PTIT", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.2, address: "SN 21, Hẻm 119/2 Mỹ Đình, Nam Từ Liêm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "05/09/2026",
-        lat: 21.031, lng: 105.768,, area: "26m2", parking: "80k/tháng", cleaning: "Miễn phí"
+        lat: 21.031, lng: 105.768,
+        area: "26m2", parking: "80k/tháng", cleaning: "Miễn phí",
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -279,7 +311,8 @@ const mockRooms = [
         distance: "6.5km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.3, address: "Toà nhà số 35, Đường Phú Đô, Nam Từ Liêm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "06/09/2026",
-        lat: 21.011, lng: 105.768,, area: "19m2", parking: "100k/tháng", cleaning: "100k/phòng"
+        lat: 21.011, lng: 105.768,
+        area: "19m2", parking: "100k/tháng", cleaning: "100k/phòng",
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -287,7 +320,8 @@ const mockRooms = [
         distance: "15km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.4, address: "Số 29A, Ngõ 176 Đa Tốn, Gia Lâm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "07/09/2026",
-        lat: 20.999, lng: 105.932,, area: "45m2", parking: "80k/tháng", cleaning: "Miễn phí"
+        lat: 20.999, lng: 105.932,
+        area: "45m2", parking: "80k/tháng", cleaning: "Miễn phí",
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -295,7 +329,8 @@ const mockRooms = [
         distance: "18km từ PTIT", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "Số 108, Ngõ 197 Đông Anh, Hà Nội",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "08/09/2026",
-        lat: 21.14, lng: 105.845,, area: "18m2", parking: "Miễn phí", cleaning: "Miễn phí"
+        lat: 21.14, lng: 105.845,
+        area: "18m2", parking: "Miễn phí", cleaning: "Miễn phí",
         verifiedBy: "Công an Phường"
     }
 ];
