@@ -284,7 +284,7 @@ const mockRooms = [
     },
     {
         id: 33, price: "1,800,000đ", title: "Phòng trọ tiện nghi tại Phú Đô",
-        distance: "6.5km từ PTIT", img: "./assets/rooms/room1.jpg",
+        distance: "6.5km từ PTIT", img: "https://media-assets.grailed.com/prd/listing/temp/dc78bcbd43ba4d8e81de4e59fed5a956?auto=format",
         rating: 4.3, address: "Phú Đô, Nam Từ Liêm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "06/09/2026",
         lat: 21.011, lng: 105.768,
@@ -292,7 +292,7 @@ const mockRooms = [
     },
     {
         id: 34, price: "2,500,000đ", title: "Phòng trọ tiện nghi tại Đa Tốn",
-        distance: "15km từ PTIT", img: "./assets/rooms/room2.jpg",
+        distance: "15km từ PTIT", img: "https://i.etsystatic.com/44253261/r/il/e7d938/5851170261/il_1080xN.5851170261_anpv.jpg",
         rating: 4.4, address: "Đa Tốn, Gia Lâm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "07/09/2026",
         lat: 20.999, lng: 105.932,
@@ -300,7 +300,7 @@ const mockRooms = [
     },
     {
         id: 35, price: "1,500,000đ", title: "Phòng trọ tiện nghi tại Đông Anh",
-        distance: "18km từ PTIT", img: "./assets/rooms/room3.jpg",
+        distance: "18km từ PTIT", img: "https://i5.walmartimages.com/seo/UC-Santa-Cruz-Banana-Slugs-T-Shirt-UCSC-Vincent-Vega-Heather-Gray-Movie-3XL_34d258ca-ecd4-4b25-89ef-ea69ceb3175a.c40edb8d1a06629e267494e5b9622acb.jpeg",
         rating: 4.5, address: "Đông Anh, Hà Nội",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "08/09/2026",
         lat: 21.14, lng: 105.845,
@@ -483,10 +483,8 @@ function openDetail(id) {
     const html = `
         <div class="detail-grid">
             <div class="detail-left">
-                
-                <iframe src="https://www.youtube.com/embed/DoBn1WWoP58?autoplay=1&mute=1&loop=1&playlist=DoBn1WWoP58" style="width:100%; height:400px; border-radius:12px; border:none; margin-bottom:20px;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-                </div>
+                <iframe src="https://www.youtube.com/embed/${ ["swYbiuL-IuM", "YKphyT2Ak9g", "KJsyYZDaXlg", "-8e4cMlWZ3U", "SG_KkgLpwsw", "10msILHmtIM", "2n8AQIe_654", "oYOi1uadXtM", "izE4yqdrOOk", "JhAuxE9rpv0", "nHkuoBsuoos", "utDkzS1333g", "b_6ZNEwlKcQ", "MMWW5pn967Q", "ylNVkby02lo"][room.id % 15] }?autoplay=1&mute=1&loop=1" style="width:100%; height:400px; object-fit:cover; border-radius:12px; margin-bottom:20px; border:none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
                 <h2 style="font-size:2rem; margin-bottom:10px;">${room.title}</h2>
                 <p style="color:#64748b; font-size:1.1rem; margin-bottom:20px; cursor:pointer;" onclick="focusOnMap(${room.lat}, ${room.lng})">
                     <i class="fa-solid fa-location-dot"></i> ${room.address} 
