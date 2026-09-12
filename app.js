@@ -303,6 +303,9 @@ let map;
 let markersArray = [];
 let currentRooms = [];
 let savedRooms = JSON.parse(localStorage.getItem('savedRooms') || '[]');
+let sentRequests = JSON.parse(localStorage.getItem('sentRequests') || '[]');
+let currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+let requestingRoomId = null;
 
 // --- GOOGLE IDENTITY SERVICES (ĐĂNG NHẬP THẬT) ---
 window.onload = function () {
@@ -315,6 +318,8 @@ window.onload = function () {
             client_id: GOOGLE_CLIENT_ID,
             callback: handleCredentialResponse
         });
+    } else {
+        document.getElementById("google-btn-wrapper").innerHTML = "<p style='color:red;'>Không tải được Google SDK</p>";
     }
     
     if (currentUser) {
@@ -322,7 +327,7 @@ window.onload = function () {
     } else {
         renderLoginButtons();
     }
-}
+};
 
 function renderUserProfile(user) {
     const authContainer = document.getElementById('auth-container');
@@ -335,11 +340,7 @@ function renderUserProfile(user) {
     `;
     document.getElementById("saved-rooms-btn").style.display = "inline-block";
     document.getElementById("history-btn").style.display = "inline-block";
-} else {
-        document.getElementById("google-btn-wrapper").innerHTML = "<p style='color:red;'>Không tải được Google SDK</p>";
-    document.getElementById("saved-rooms-btn").style.display = "none";
-    }
-};
+}
 
 // Hàm hiển thị lại các nút Đăng nhập
 function renderLoginButtons() {
