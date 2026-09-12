@@ -447,7 +447,10 @@ function openDetail(id) {
                     <div class="play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <h2 style="font-size:2rem; margin-bottom:10px;">${room.title}</h2>
-                <p style="color:#64748b; font-size:1.1rem; margin-bottom:20px;"><i class="fa-solid fa-location-dot"></i> ${room.address}</p>
+                <p style="color:#64748b; font-size:1.1rem; margin-bottom:20px; cursor:pointer;" onclick="focusOnMap(${room.lat}, ${room.lng})">
+                    <i class="fa-solid fa-location-dot"></i> ${room.address} 
+                    <span style="font-size:0.9rem; color:#2563eb; margin-left:10px;">(Xem vị trí trên bản đồ)</span>
+                </p>
                 
                 <div class="host-info">
                     <img src="https://ui-avatars.com/api/?name=Xác+Thực&background=10b981&color=fff" alt="Host">
@@ -472,7 +475,7 @@ function openDetail(id) {
                         <li><span style="color:#64748b;"><i class="fa-solid fa-wifi"></i> Internet</span> <strong>${room.internet}</strong></li>
                     </ul>
                     <div style="display:flex; gap:10px; margin-top:20px;">
-                        <button class="book-btn" style="flex:1;">Gửi Yêu Cầu Thuê</button>
+                        <button class="book-btn" style="flex:1;" onclick="sendRentalRequest(${room.id})">Gửi Yêu Cầu Thuê</button>
                         <button class="save-btn" onclick="toggleSaveRoom(${room.id})" id="save-room-btn-${room.id}" style="padding: 12px 20px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; cursor:pointer; font-weight:600; color: #ef4444;">
                             <i class="${savedRooms.includes(room.id) ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
                         </button>
@@ -642,4 +645,13 @@ function openSavedRooms() {
         `).join('');
     }
     document.getElementById('saved-modal').classList.remove('hidden');
+}
+
+function focusOnMap(lat, lng) {
+    closeModal('detail-modal');
+    map.setView([lat, lng], 17);
+}
+
+function sendRentalRequest(roomId) {
+    alert("Thành công! Yêu cầu thuê phòng của bạn đã được gửi đến hệ thống an toàn của MyRentPlace.\\nChủ nhà sẽ liên hệ với bạn trong vòng 24h tới để sắp xếp lịch xem nhà thực tế.");
 }
