@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My RentPlace - Nền Tảng Thuê Nhà Sinh Viên</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Identity Services cho Đăng nhập thật -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    
+    <div class="web-app-container">
+        
+        <!-- HEADER -->
+        <header class="web-header">
+            <div class="logo">
+                <img src="https://img.icons8.com/fluency/48/home.png" alt="Logo">
+                <h1>My RentPlace</h1>
+            </div>
+
+            <div class="header-search">
+                <input type="text" placeholder="Bạn muốn tìm nhà trọ ở khu vực nào?">
+                <button><i class="fa-solid fa-search"></i></button>
+            </div>
+
+            <div class="header-actions">
+                <button class="nav-btn" onclick="openBlacklist()"><i class="fa-solid fa-shield-halved"></i> Tra cứu lừa đảo</button>
+                <div id="auth-container">
+                    <!-- Nút Đăng Nhập Google Tích Hợp -->
+                    <div id="google-btn-wrapper"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <main class="web-main">
+            <!-- LEFT PANEL: DANH SÁCH -->
+            <section class="left-panel">
+                <div class="panel-header">
+                    <h2>Hơn 500+ phòng trọ an toàn cho sinh viên</h2>
+                    <div class="filters">
+                        <button class="active">Tất cả</button>
+                        <button><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Chỉ hiện phòng có Tick Xanh</button>
+                        <button>Dưới 2 Triệu</button>
+                        <button>Gần điểm xe buýt</button>
+                    </div>
+                </div>
+
+                <div id="listing-container" class="grid-listing">
+                    <!-- JS sẽ tự đổ danh sách phòng trọ vào đây -->
+                </div>
+            </section>
+
+            <!-- RIGHT PANEL: BẢN ĐỒ -->
+            <section class="right-panel">
+                <button id="locate-btn" class="locate-btn" onclick="locateUser()"><i class="fa-solid fa-location-crosshairs"></i> Vị trí của tôi</button>
+                <div id="map-container"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL CHI TIẾT PHÒNG -->
+    <div id="detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('detail-modal')"><i class="fa-solid fa-xmark"></i></button>
+            <div id="detail-content-container"></div>
+        </div>
+    </div>
+
+    <!-- MODAL BLACKLIST -->
+    <div id="blacklist-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('blacklist-modal')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="blacklist-header">
+                <h2><i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;"></i> Danh Sách Đen Cò Mồi</h2>
+                <div class="search-bar alert-search">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Nhập Số điện thoại chủ nhà để tra cứu...">
+                </div>
+            </div>
+            <div id="scam-list-container" class="scam-list"></div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
