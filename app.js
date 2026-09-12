@@ -1,3 +1,21 @@
+
+// --- DARK MODE LOGIC ---
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const btn = document.getElementById('dark-mode-btn');
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        btn.innerHTML = '<i class="fa-solid fa-sun" style="color:#fbbf24;"></i>';
+    } else {
+        localStorage.setItem('theme', 'light');
+        btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+}
 // --- DỮ LIỆU GIẢ LẬP (MOCK DATA) ---
 const mockRooms = [
     {
@@ -311,6 +329,11 @@ let requestingRoomId = null;
 window.onload = function () {
     renderHomeList();
     initMap();
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        const btn = document.getElementById('dark-mode-btn');
+        if (btn) btn.innerHTML = '<i class="fa-solid fa-sun" style="color:#fbbf24;"></i>';
+    }
 
     const GOOGLE_CLIENT_ID = "212798554667-taq34omvlal7l0dkmmen80m7aog9brh6.apps.googleusercontent.com"; 
     if(typeof google !== 'undefined') {

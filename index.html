@@ -10,7 +10,7 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     
     <!-- Google Identity Services cho Đăng nhập thật -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -32,6 +32,7 @@
             </div>
 
             <div class="header-actions">
+                <button id="dark-mode-btn" class="nav-btn" onclick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
                 <button id="history-btn" class="nav-btn" style="display:none;" onclick="openHistory()"><i class="fa-solid fa-clock-rotate-left" style="color:#3b82f6;"></i> Đã liên hệ</button>
                 <button id="saved-rooms-btn" class="nav-btn" style="display:none;" onclick="openSavedRooms()"><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Phòng đã lưu</button>
                 <button class="nav-btn" onclick="openBlacklist()"><i class="fa-solid fa-shield-halved"></i> Tra cứu lừa đảo</button>
@@ -137,6 +138,6 @@
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="app.js?v=3"></script>
+    <script src="app.js?v=4"></script>
 </body>
 </html>
