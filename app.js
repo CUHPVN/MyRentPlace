@@ -102,6 +102,17 @@ function decodeJwtResponse(token) {
     return JSON.parse(jsonPayload);
 }
 
+// Hàm xử lý Đăng nhập Ẩn danh (Chế độ Khách)
+function loginAsGuest() {
+    const authContainer = document.getElementById('auth-container');
+    authContainer.innerHTML = `
+        <div class="user-profile">
+            <img src="https://ui-avatars.com/api/?name=Khách&background=cbd5e1&color=fff" alt="Avatar">
+            <span>Khách truy cập</span>
+        </div>
+    `;
+}
+
 // --- RENDER DỮ LIỆU ---
 function renderHomeList() {
     const container = document.getElementById('listing-container');

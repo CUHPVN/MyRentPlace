@@ -78,6 +78,14 @@ body {
 .nav-btn:hover { background: #f1f5f9; }
 .nav-btn i { color: var(--danger); }
 
+.guest-btn {
+    background: #f8fafc; border: 1px solid var(--border-color);
+    padding: 0 16px; border-radius: 100px; height: 40px;
+    font-weight: 600; cursor: pointer; transition: 0.2s;
+    display: flex; align-items: center; gap: 8px; color: var(--text-muted);
+}
+.guest-btn:hover { background: #e2e8f0; color: var(--text-main); }
+
 /* USER PROFILE (After Login) */
 .user-profile {
     display: flex; align-items: center; gap: 12px;

@@ -33,9 +33,11 @@
 
             <div class="header-actions">
                 <button class="nav-btn" onclick="openBlacklist()"><i class="fa-solid fa-shield-halved"></i> Tra cứu lừa đảo</button>
-                <div id="auth-container">
+                <div id="auth-container" style="display: flex; align-items: center; gap: 10px;">
                     <!-- Nút Đăng Nhập Google Tích Hợp -->
                     <div id="google-btn-wrapper"></div>
+                    <span style="color: #64748b; font-size: 0.9rem;">hoặc</span>
+                    <button class="guest-btn" onclick="loginAsGuest()"><i class="fa-regular fa-user"></i> Chế độ Khách</button>
                 </div>
             </div>
         </header>
