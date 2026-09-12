@@ -5,7 +5,7 @@ const mockRooms = [
         distance: "1.5km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.1, address: "Triều Khúc, Thanh Xuân",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "02/09/2026",
-        lat: 20.9795, lng: 105.8005,
+        lat: 20.9825, lng: 105.796,
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -13,7 +13,7 @@ const mockRooms = [
         distance: "1.2km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.2, address: "Mỗ Lao, Hà Đông",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "03/09/2026",
-        lat: 20.9865, lng: 105.7885,
+        lat: 20.982, lng: 105.782,
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -21,7 +21,7 @@ const mockRooms = [
         distance: "1.8km từ PTIT", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.3, address: "Yên Xá, Tân Triều",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "04/09/2026",
-        lat: 20.9715, lng: 105.7945,
+        lat: 20.971, lng: 105.787,
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -29,7 +29,7 @@ const mockRooms = [
         distance: "1km từ PTIT", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.4, address: "Văn Quán, Hà Đông",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "05/09/2026",
-        lat: 20.9765, lng: 105.7925,
+        lat: 20.978, lng: 105.788,
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -37,7 +37,7 @@ const mockRooms = [
         distance: "2km từ PTIT", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "Xa La, Hà Đông",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "06/09/2026",
-        lat: 20.9662, lng: 105.7952,
+        lat: 20.966, lng: 105.785,
         verifiedBy: "Công an Phường"
     },
     {
@@ -45,7 +45,7 @@ const mockRooms = [
         distance: "2.5km từ PTIT", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.6, address: "Phùng Khoang, Nam Từ Liêm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "07/09/2026",
-        lat: 20.9878, lng: 105.7968,
+        lat: 20.989, lng: 105.792,
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -53,7 +53,7 @@ const mockRooms = [
         distance: "3.5km từ PTIT", img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.7, address: "Thượng Đình, Thanh Xuân",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "08/09/2026",
-        lat: 20.9955, lng: 105.8135,
+        lat: 20.998, lng: 105.811,
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -61,7 +61,7 @@ const mockRooms = [
         distance: "4km từ PTIT", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.8, address: "Khương Trung, Thanh Xuân",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "09/09/2026",
-        lat: 21.0025, lng: 105.819,
+        lat: 20.999, lng: 105.817,
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -69,7 +69,7 @@ const mockRooms = [
         distance: "3km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.9, address: "Thanh Xuân Bắc, Thanh Xuân",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "10/09/2026",
-        lat: 20.9912, lng: 105.8075,
+        lat: 20.992, lng: 105.8,
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -77,7 +77,7 @@ const mockRooms = [
         distance: "6km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.0, address: "Chùa Láng, Đống Đa",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "11/09/2026",
-        lat: 21.0245, lng: 105.8025,
+        lat: 21.022, lng: 105.802,
         verifiedBy: "Công an Phường"
     },
     {
@@ -85,7 +85,7 @@ const mockRooms = [
         distance: "5.5km từ PTIT", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.1, address: "Thái Hà, Đống Đa",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "12/09/2026",
-        lat: 21.012, lng: 105.8255,
+        lat: 21.011, lng: 105.82,
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -93,7 +93,7 @@ const mockRooms = [
         distance: "6.2km từ PTIT", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.2, address: "Xã Đàn, Đống Đa",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "13/09/2026",
-        lat: 21.0195, lng: 105.831,
+        lat: 21.016, lng: 105.833,
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -101,7 +101,7 @@ const mockRooms = [
         distance: "7km từ PTIT", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.3, address: "Cát Linh, Đống Đa",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "14/09/2026",
-        lat: 21.029, lng: 105.827,
+        lat: 21.028, lng: 105.829,
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -109,7 +109,7 @@ const mockRooms = [
         distance: "7.5km từ PTIT", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.4, address: "Dịch Vọng Hậu, Cầu Giấy",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "15/09/2026",
-        lat: 21.0375, lng: 105.787,
+        lat: 21.037, lng: 105.79,
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -117,7 +117,7 @@ const mockRooms = [
         distance: "8.5km từ PTIT", img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "Nghĩa Tân, Cầu Giấy",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "16/09/2026",
-        lat: 21.046, lng: 105.7975,
+        lat: 21.043, lng: 105.795,
         verifiedBy: "Công an Phường"
     },
     {
@@ -125,7 +125,7 @@ const mockRooms = [
         distance: "6.5km từ PTIT", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.6, address: "Yên Hòa, Cầu Giấy",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "17/09/2026",
-        lat: 21.0215, lng: 105.792,
+        lat: 21.019, lng: 105.796,
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -133,7 +133,7 @@ const mockRooms = [
         distance: "7.2km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.7, address: "Quan Hoa, Cầu Giấy",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "18/09/2026",
-        lat: 21.0335, lng: 105.8005,
+        lat: 21.033, lng: 105.8,
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -141,7 +141,7 @@ const mockRooms = [
         distance: "8km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.8, address: "Tạ Quang Bửu, Hai Bà Trưng",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "19/09/2026",
-        lat: 21.0065, lng: 105.847,
+        lat: 21.004, lng: 105.845,
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -149,7 +149,7 @@ const mockRooms = [
         distance: "9km từ PTIT", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.9, address: "Minh Khai, Hai Bà Trưng",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "20/09/2026",
-        lat: 20.9995, lng: 105.8575,
+        lat: 20.998, lng: 105.855,
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -157,7 +157,7 @@ const mockRooms = [
         distance: "9.5km từ PTIT", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.0, address: "Lò Đúc, Hai Bà Trưng",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "21/09/2026",
-        lat: 21.016, lng: 105.852,
+        lat: 21.015, lng: 105.855,
         verifiedBy: "Công an Phường"
     },
     {
@@ -165,7 +165,7 @@ const mockRooms = [
         distance: "10km từ PTIT", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.1, address: "Phố Cổ, Hoàn Kiếm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "22/09/2026",
-        lat: 21.0315, lng: 105.8545,
+        lat: 21.031, lng: 105.851,
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -173,7 +173,7 @@ const mockRooms = [
         distance: "9.8km từ PTIT", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.2, address: "Tràng Thi, Hoàn Kiếm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "23/09/2026",
-        lat: 21.0255, lng: 105.852,
+        lat: 21.026, lng: 105.849,
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -181,7 +181,7 @@ const mockRooms = [
         distance: "9km từ PTIT", img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.3, address: "Xuân La, Tây Hồ",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "24/09/2026",
-        lat: 21.057, lng: 105.807,
+        lat: 21.056, lng: 105.806,
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -189,7 +189,7 @@ const mockRooms = [
         distance: "11km từ PTIT", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.4, address: "Quảng An, Tây Hồ",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "25/09/2026",
-        lat: 21.0765, lng: 105.822,
+        lat: 21.066, lng: 105.822,
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -197,7 +197,7 @@ const mockRooms = [
         distance: "8.5km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "Đội Cấn, Ba Đình",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "26/09/2026",
-        lat: 21.0365, lng: 105.82,
+        lat: 21.035, lng: 105.817,
         verifiedBy: "Công an Phường"
     },
     {
@@ -205,7 +205,7 @@ const mockRooms = [
         distance: "8.8km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.6, address: "Kim Mã, Ba Đình",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "27/09/2026",
-        lat: 21.0435, lng: 105.832,
+        lat: 21.03, lng: 105.82,
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -213,7 +213,7 @@ const mockRooms = [
         distance: "7km từ PTIT", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.7, address: "Giải Phóng, Hoàng Mai",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "28/09/2026",
-        lat: 20.982, lng: 105.849,
+        lat: 20.985, lng: 105.841,
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -221,7 +221,7 @@ const mockRooms = [
         distance: "8.5km từ PTIT", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.8, address: "Lĩnh Nam, Hoàng Mai",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "01/09/2026",
-        lat: 20.9665, lng: 105.847,
+        lat: 20.976, lng: 105.867,
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -229,7 +229,7 @@ const mockRooms = [
         distance: "12km từ PTIT", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.9, address: "Ngọc Lâm, Long Biên",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "02/09/2026",
-        lat: 21.046, lng: 105.8775,
+        lat: 21.046, lng: 105.875,
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -237,7 +237,7 @@ const mockRooms = [
         distance: "13km từ PTIT", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.0, address: "Aeon Mall, Long Biên",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "03/09/2026",
-        lat: 21.0315, lng: 105.887,
+        lat: 21.027, lng: 105.897,
         verifiedBy: "Công an Phường"
     },
     {
@@ -245,7 +245,7 @@ const mockRooms = [
         distance: "8.5km từ PTIT", img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.1, address: "Tây Mỗ, Nam Từ Liêm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "04/09/2026",
-        lat: 21.0045, lng: 105.746,
+        lat: 21.003, lng: 105.748,
         verifiedBy: "Đoàn Thanh niên"
     },
     {
@@ -253,7 +253,7 @@ const mockRooms = [
         distance: "9.5km từ PTIT", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.2, address: "Mỹ Đình, Nam Từ Liêm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "05/09/2026",
-        lat: 21.0355, lng: 105.767,
+        lat: 21.031, lng: 105.768,
         verifiedBy: "Hội Sinh viên Hà Nội"
     },
     {
@@ -261,7 +261,7 @@ const mockRooms = [
         distance: "6.5km từ PTIT", img: "https://images.unsplash.com/photo-1499955085172-a104c9463ece?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.3, address: "Phú Đô, Nam Từ Liêm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "06/09/2026",
-        lat: 21.0115, lng: 105.77,
+        lat: 21.011, lng: 105.768,
         verifiedBy: "Ban Quản lý khu phố"
     },
     {
@@ -269,7 +269,7 @@ const mockRooms = [
         distance: "15km từ PTIT", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.4, address: "Đa Tốn, Gia Lâm",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "07/09/2026",
-        lat: 21.0005, lng: 105.9345,
+        lat: 20.999, lng: 105.932,
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
@@ -277,7 +277,7 @@ const mockRooms = [
         distance: "18km từ PTIT", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.5, address: "Đông Anh, Hà Nội",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "08/09/2026",
-        lat: 21.1415, lng: 105.847,
+        lat: 21.14, lng: 105.845,
         verifiedBy: "Công an Phường"
     }
 ];
