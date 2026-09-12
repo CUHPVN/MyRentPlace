@@ -27,11 +27,12 @@
             </div>
 
             <div class="header-search">
-                <input type="text" placeholder="Bạn muốn tìm nhà trọ ở khu vực nào?">
+                <input type="text" id="main-search-input" placeholder="Bạn muốn tìm nhà trọ ở khu vực nào?" onkeyup="handleSearch()">
                 <button><i class="fa-solid fa-search"></i></button>
             </div>
 
             <div class="header-actions">
+                <button id="saved-rooms-btn" class="nav-btn" style="display:none;" onclick="openSavedRooms()"><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Phòng đã lưu</button>
                 <button class="nav-btn" onclick="openBlacklist()"><i class="fa-solid fa-shield-halved"></i> Tra cứu lừa đảo</button>
                 <div id="auth-container" style="display: flex; align-items: center; gap: 10px;">
                     <!-- Nút Đăng Nhập Google Tích Hợp -->
@@ -49,10 +50,10 @@
                 <div class="panel-header">
                     <h2>Hơn 500+ phòng trọ an toàn cho sinh viên</h2>
                     <div class="filters">
-                        <button class="active">Tất cả</button>
-                        <button><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Chỉ hiện phòng có Tick Xanh</button>
-                        <button>Dưới 2 Triệu</button>
-                        <button>Gần điểm xe buýt</button>
+                        <button id="filter-all" class="active" onclick="handleFilter('all')">Tất cả</button>
+                        <button id="filter-verified" onclick="handleFilter('verified')"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Chỉ hiện phòng có Tick Xanh</button>
+                        <button id="filter-cheap" onclick="handleFilter('cheap')">Dưới 2.5 Triệu</button>
+                        <button id="filter-near" onclick="handleFilter('near')">Dưới 3km từ PTIT</button>
                     </div>
                 </div>
 
@@ -85,10 +86,23 @@
                 <h2><i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;"></i> Danh Sách Đen Cò Mồi</h2>
                 <div class="search-bar alert-search">
                     <i class="fa-solid fa-search"></i>
-                    <input type="text" placeholder="Nhập Số điện thoại chủ nhà để tra cứu...">
+                    <input type="text" id="blacklist-search-input" placeholder="Nhập Số điện thoại chủ nhà để tra cứu..." onkeyup="handleBlacklistSearch()">
                 </div>
             </div>
             <div id="scam-list-container" class="scam-list"></div>
+        </div>
+    </div>
+
+    <!-- MODAL PHÒNG ĐÃ LƯU -->
+    <div id="saved-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('saved-modal')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="blacklist-header">
+                <h2><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Phòng Trọ Đã Lưu</h2>
+            </div>
+            <div id="saved-list-container" class="grid-listing" style="margin-top:20px; grid-template-columns: 1fr;">
+                <!-- JS sẽ tự đổ danh sách phòng đã lưu -->
+            </div>
         </div>
     </div>
 
