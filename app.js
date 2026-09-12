@@ -207,7 +207,7 @@ const mockRooms = [
         distance: "11km từ PTIT", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
         rating: 4.4, address: "Số 99, Ngõ 75 Quảng An, Tây Hồ",
         elec: "3,500đ", water: "100k", internet: "Miễn phí", verifiedDate: "25/09/2026",
-        lat: 21.066, lng: 105.822,
+        lat: 21.0682, lng: 105.8239,
         verifiedBy: "Cộng đồng MyRentPlace"
     },
     {
