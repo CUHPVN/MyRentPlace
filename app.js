@@ -373,8 +373,8 @@ function initMap() {
     const ptitLat = 20.9806; const ptitLng = 105.7877;
     map = L.map('map-container').setView([ptitLat, ptitLng], 12);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap'
+    L.tileLayer('https://mt1.google.com/vt/lyrs=m&hl=vi&x={x}&y={y}&z={z}', {
+        attribution: '© Google Maps'
     }).addTo(map);
 
     var ptitIcon = L.icon({ iconUrl: 'https://img.icons8.com/color/48/university.png', iconSize: [40, 40] });
