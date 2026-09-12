@@ -51,10 +51,20 @@ rooms = [
 
 parties = ["Công an Phường", "Đoàn Thanh niên", "Hội Sinh viên Hà Nội", "Ban Quản lý khu phố", "Cộng đồng MyRentPlace"]
 
+unsplash_urls = [
+    "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=400&h=250",
+    "https://images.unsplash.com/photo-1502672260266-1c1de2d96674?auto=format&fit=crop&q=80&w=400&h=250",
+    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=400&h=250",
+    "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=400&h=250",
+    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=400&h=250",
+    "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=250",
+    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=400&h=250",
+    "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=400&h=250"
+]
+
 js_code = "const mockRooms = [\n"
 for r in rooms:
-    # Use reliable picsum for images
-    img_url = f"https://picsum.photos/seed/myrentplace{r['id']}/400/250"
+    img_url = unsplash_urls[r["id"] % len(unsplash_urls)]
     verified = parties[r["id"] % len(parties)]
     
     js_code += f"""    {{
