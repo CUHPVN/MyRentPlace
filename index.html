@@ -10,7 +10,7 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="styles.css?v=10">
     
     <!-- Google Identity Services cho Đăng nhập thật -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -84,16 +84,16 @@
 
     <!-- MODAL CHI TIẾT PHÒNG -->
     <div id="detail-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('detail-modal')"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('detail-modal')"><i class="fa-solid fa-xmark"></i></button>
             <div id="detail-content-container"></div>
         </div>
     </div>
 
     <!-- MODAL BLACKLIST -->
     <div id="blacklist-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('blacklist-modal')"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('blacklist-modal')"><i class="fa-solid fa-xmark"></i></button>
             <div class="blacklist-header">
                 <h2><i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;"></i> Danh Sách Đen Cò Mồi</h2>
                 <div class="search-bar alert-search">
@@ -107,8 +107,8 @@
 
     <!-- MODAL PHÒNG ĐÃ LƯU -->
     <div id="saved-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('saved-modal')"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('saved-modal')"><i class="fa-solid fa-xmark"></i></button>
             <div class="blacklist-header">
                 <h2><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Phòng Trọ Đã Lưu</h2>
             </div>
@@ -120,8 +120,8 @@
 
     <!-- MODAL FORM YÊU CẦU THUÊ -->
     <div id="request-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('request-modal')"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-content" style="max-width: 400px;">
-            <button class="close-btn" onclick="closeModal('request-modal')"><i class="fa-solid fa-xmark"></i></button>
             <div class="blacklist-header">
                 <h2><i class="fa-solid fa-paper-plane" style="color:#2563eb;"></i> Gửi Liên Hệ Cho Chủ Nhà</h2>
             </div>
@@ -135,8 +135,8 @@
 
     <!-- MODAL LỊCH SỬ LIÊN HỆ -->
     <div id="history-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('history-modal')"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-content">
-            <button class="close-btn" onclick="closeModal('history-modal')"><i class="fa-solid fa-xmark"></i></button>
             <div class="blacklist-header">
                 <h2><i class="fa-solid fa-clock-rotate-left" style="color:#3b82f6;"></i> Phòng Trọ Đã Liên Hệ</h2>
             </div>
