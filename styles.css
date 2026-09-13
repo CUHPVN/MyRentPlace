@@ -799,3 +799,12 @@ body.dark-mode .leaflet-control-attribution {
     max-width: 400px;
     margin: 0 20px;
 }
+
+
+/* Fix AI Modal and Escrow Modal being under Detail Modal */
+#ai-contract-modal, #escrow-modal {
+    z-index: 20010 !important;
+}
+#ai-contract-modal .close-btn, #escrow-modal .close-btn {
+    z-index: 20011 !important;
+}
