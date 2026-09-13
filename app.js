@@ -610,16 +610,16 @@ function renderMapMarkers(data) {
 
 function locateUser() {
     if (navigator.geolocation) {
-        document.getElementById('locate-btn').innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang tìm...';
+        document.getElementById('locate-btn').innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
         navigator.geolocation.getCurrentPosition(position => {
             const lat = position.coords.latitude; const lng = position.coords.longitude;
             map.setView([lat, lng], 15);
             var userIcon = L.icon({ iconUrl: 'https://img.icons8.com/color/48/street-view.png', iconSize: [46, 46] });
             L.marker([lat, lng], {icon: userIcon}).addTo(map).bindPopup("Bạn đang ở đây!").openPopup();
-            document.getElementById('locate-btn').innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Vị trí của tôi';
+            document.getElementById('locate-btn').innerHTML = '<i class="fa-solid fa-location-crosshairs"></i>';
         }, () => {
             alert("Không thể lấy vị trí. Hãy bật Location trong trình duyệt nhé.");
-            document.getElementById('locate-btn').innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> Vị trí của tôi';
+            document.getElementById('locate-btn').innerHTML = '<i class="fa-solid fa-location-crosshairs"></i>';
         });
     } else {
         alert("Trình duyệt không hỗ trợ tìm vị trí GPS.");
