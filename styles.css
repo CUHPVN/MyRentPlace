@@ -751,3 +751,30 @@ body.dark-mode .leaflet-control-attribution {
     background-color: #fecaca; /* Red */
     color: #991b1b;
 }
+
+
+/* --- BUG FIXES --- */
+
+/* 1. Fix squished icon buttons in header */
+.nav-btn.icon-only, .header-search button, .user-profile img {
+    flex-shrink: 0;
+}
+
+/* 2. Fix invisible chatbot container blocking map clicks */
+#chatbot-container {
+    pointer-events: none; /* Let clicks pass through the container */
+}
+#chat-fab, #chat-window {
+    pointer-events: auto; /* Make the actual buttons/window clickable */
+}
+
+/* 3. Fix Escrow/Request Modal being under Detail Modal */
+#request-modal { 
+    z-index: 20010 !important; 
+}
+#request-modal .close-btn { 
+    z-index: 20011 !important; 
+}
+
+/* Make sure Community Modal also has a proper z-index if needed, though 20000 is fine */
+#community-modal { z-index: 20000 !important; }
