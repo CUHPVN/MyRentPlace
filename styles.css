@@ -124,6 +124,8 @@ body {
     padding: 10px 20px; border-radius: 100px;
     font-weight: 600; cursor: pointer; transition: all 0.2s ease;
     display: flex; align-items: center; gap: 8px; color: var(--text-main);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 .nav-btn:hover { background: var(--bg-secondary); }
 .nav-btn i { color: var(--danger); }
