@@ -731,3 +731,23 @@ body.dark-mode .leaflet-control-attribution {
 .modal { z-index: 20000 !important; }
 .close-btn { z-index: 20001 !important; }
 #detail-modal { z-index: 20005 !important; }
+
+/* AI Contract Highlighting */
+.ai-highlight {
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 0 4px;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+.ai-highlight:hover {
+    filter: brightness(0.9);
+}
+.ai-highlight.warning {
+    background-color: #fef08a; /* Yellow */
+    color: #854d0e;
+}
+.ai-highlight.danger {
+    background-color: #fecaca; /* Red */
+    color: #991b1b;
+}

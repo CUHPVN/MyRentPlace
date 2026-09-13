@@ -981,18 +981,94 @@ function openEscrow() {
 }
 
 function openAIContract() {
-    document.getElementById('ai-contract-content').innerHTML = `
-        <h3 style="text-align:center; margin-bottom:20px;">HỢP ĐỒNG THUÊ NHÀ (MẪU)</h3>
-        <p>Bên A: Nguyễn Văn Chủ</p>
-        <p>Bên B: Bạn</p>
-        <p>Điều 1: Tiền thuê nhà là 2,500,000đ/tháng. Thanh toán vào mùng 1 hàng tháng.</p>
-        <p>Điều 2: Tiền điện là <span style="background:#fef08a; padding:2px; border-radius:3px; cursor:pointer;" title="AI Đánh giá: Giá điện 4k/số cao hơn 500đ so với mặt bằng chung (3.5k)">4,000đ/số (⚠️)</span>.</p>
-        <p>Điều 3: Nếu bên B chấm dứt hợp đồng trước hạn, <span style="background:#fecaca; padding:2px; border-radius:3px; cursor:pointer;" title="AI Đánh giá: Điều khoản bất lợi! Bạn sẽ mất toàn bộ cọc.">Bên B sẽ mất 100% tiền cọc và phạt 1 tháng tiền nhà (🚨)</span>.</p>
-        <div style="margin-top:20px; padding:10px; background:#fff; border-radius:8px; border:1px solid #cbd5e1;">
-            <strong>🤖 AI Tóm tắt:</strong> Hợp đồng có 2 điểm cần lưu ý về giá điện và mức phạt. Khuyên bạn nên thương lượng lại Điều 3 trước khi ký.
+    const modal = document.getElementById('ai-contract-modal');
+    modal.classList.remove('hidden');
+    
+    const content = document.getElementById('ai-contract-content');
+    
+    // Initial State: Upload / Scan
+    content.innerHTML = `
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center;">
+            <i class="fa-solid fa-file-contract" style="font-size:4rem; color:var(--text-muted); margin-bottom:20px;"></i>
+            <h3>Tải lên Hợp Đồng Của Bạn</h3>
+            <p style="color:var(--text-muted); margin-bottom:20px;">AI sẽ tự động quét và phát hiện các điều khoản mập mờ, bất lợi.</p>
+            <div style="display:flex; gap:10px;">
+                <button class="btn-outline">Chọn File (PDF/JPG)</button>
+                <button class="btn-primary" onclick="simulateAIScan()">Dùng Hợp Đồng Mẫu Demo</button>
+            </div>
         </div>
     `;
-    document.getElementById('ai-contract-modal').classList.remove('hidden');
+}
+
+function simulateAIScan() {
+    const content = document.getElementById('ai-contract-content');
+    
+    content.innerHTML = `
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center;">
+            <i class="fa-solid fa-spinner fa-spin" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+            <h3>AI đang phân tích ngữ nghĩa hợp đồng...</h3>
+            <div style="width: 80%; background: #e2e8f0; height: 10px; border-radius: 5px; margin-top:20px; overflow:hidden;">
+                <div id="ai-progress" style="width: 0%; height: 100%; background: var(--primary); transition: width 1.5s ease;"></div>
+            </div>
+        </div>
+    `;
+    
+    setTimeout(() => {
+        document.getElementById('ai-progress').style.width = "100%";
+    }, 100);
+    
+    setTimeout(() => {
+        renderAIResult();
+    }, 1600);
+}
+
+function renderAIResult() {
+    const content = document.getElementById('ai-contract-content');
+    
+    content.innerHTML = `
+        <div style="display:flex; gap:20px; height: 100%;">
+            <!-- Bản text hợp đồng -->
+            <div style="flex:2; background: white; padding:20px; border-radius:8px; border:1px solid #cbd5e1; overflow-y:auto; color:black; font-family:'Times New Roman', serif; font-size:1.1rem; line-height:1.8;">
+                <h2 style="text-align:center; font-size:1.4rem;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h2>
+                <h3 style="text-align:center; text-decoration:underline; margin-bottom:20px; font-size:1.2rem;">Độc lập - Tự do - Hạnh phúc</h3>
+                <h3 style="text-align:center; margin-bottom:20px;">HỢP ĐỒNG THUÊ NHÀ TRỌ</h3>
+                <p>... (Các điều khoản thông thường) ...</p>
+                <p><b>Điều 2: Giá cả và thanh toán</b></p>
+                <p>1. Giá thuê: 2,500,000 VNĐ / tháng.</p>
+                <p>2. Giá điện: <span class="ai-highlight warning" onclick="showAITooltip('Giá điện 4,500đ/số cao hơn 30% so với quy định giá điện bậc thang của Nhà Nước (khoảng 3,000đ - 3,500đ/số).', 'warning')">4,500 VNĐ / 1 kWh</span>.</p>
+                <p>3. Tiền nước: 100,000 VNĐ / 1 người / tháng.</p>
+                <p>4. Các phí khác (Rác, Wifi, Gửi xe): <span class="ai-highlight danger" onclick="showAITooltip('Điều khoản KHÔNG ghi rõ số tiền cụ thể. Rất dễ bị chủ nhà tự ý tăng giá vô lý sau khi đã ký hợp đồng. Yêu cầu ghi rõ con số.', 'danger')">Thu theo quy định của chủ nhà từng thời điểm</span>.</p>
+                
+                <p><b>Điều 4: Quy định chấm dứt hợp đồng</b></p>
+                <p>1. Tiền cọc: 5,000,000 VNĐ (Tương đương 2 tháng tiền nhà).</p>
+                <p>2. Nếu Bên B (Người thuê) chuyển đi trước thời hạn hợp đồng (12 tháng), <span class="ai-highlight danger" onclick="showAITooltip('Mức phạt quá nặng! Thông thường nếu báo trước 30 ngày, người thuê có thể được hoàn lại 50% - 100% cọc tùy thỏa thuận.', 'danger')">Bên B sẽ mất toàn bộ tiền cọc và phải đền bù thêm 1 tháng tiền nhà.</span></p>
+            </div>
+            
+            <!-- AI Phân tích -->
+            <div style="flex:1; display:flex; flex-direction:column; gap:15px;">
+                <div style="background:var(--bg-card); padding:20px; border-radius:12px; border:1px solid var(--border-color); text-align:center;">
+                    <h3 style="margin-bottom:10px;">Điểm An Toàn</h3>
+                    <div style="font-size:3rem; font-weight:bold; color:var(--danger);">45<span style="font-size:1rem; color:var(--text-muted);">/100</span></div>
+                    <p style="color:var(--danger); font-weight:600; margin-top:10px;"><i class="fa-solid fa-triangle-exclamation"></i> Rủi ro cao</p>
+                </div>
+                
+                <div style="background:var(--bg-card); padding:20px; border-radius:12px; border:1px solid var(--border-color); flex:1;">
+                    <h4 style="margin-bottom:15px; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-robot" style="color:var(--primary);"></i> AI Cảnh Báo</h4>
+                    <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">Hãy click vào các phần bị bôi màu (vàng/đỏ) trong hợp đồng để xem phân tích chi tiết của AI.</p>
+                    <div id="ai-tooltip-area" style="padding:15px; border-radius:8px; background:var(--bg-secondary); border-left:4px solid var(--primary); font-size:0.95rem; line-height:1.5;">
+                        <i>Chưa chọn điều khoản nào.</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function showAITooltip(text, type) {
+    const area = document.getElementById('ai-tooltip-area');
+    let borderColor = type === 'danger' ? 'var(--danger)' : '#f59e0b';
+    area.style.borderLeftColor = borderColor;
+    area.innerHTML = `<b>Phân tích:</b><br><br>${text}`;
 }
 
 // 4. CHATBOT
