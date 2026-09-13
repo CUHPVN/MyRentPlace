@@ -874,32 +874,71 @@ function openCompareModal() {
 }
 
 // 2. COMMUNITY & ALERTS
+
 function openCommunity() {
     document.getElementById('community-modal').classList.remove('hidden');
     switchTab('ghep-tro');
     
     document.getElementById('ghep-tro-content').innerHTML = `
-        <div class="scam-card">
-            <img src="https://ui-avatars.com/api/?name=Long" style="width:40px; border-radius:50%; margin-right:15px;">
-            <div>
-                <h4>Nam D23 cần 1 bạn nam ghép trọ Triều Khúc</h4>
-                <p style="color:#64748b; font-size:0.9rem;">Phòng 2tr5, đầy đủ điều hòa nóng lạnh. Mình gọn gàng ít nhậu.</p>
-                <button class="btn-outline" style="margin-top:10px;">Nhắn tin</button>
+        <div style="display:flex; gap:10px; margin-bottom:20px;">
+            <input type="text" id="post-ghep-tro" placeholder="Bạn muốn tìm bạn ghép trọ như thế nào?" class="req-input" style="flex:1;">
+            <button class="btn-primary" onclick="submitCommunityPost('ghep-tro')">Đăng</button>
+        </div>
+        <div id="ghep-tro-list">
+            <div class="scam-card">
+                <img src="https://ui-avatars.com/api/?name=Long" style="width:40px; border-radius:50%; margin-right:15px;">
+                <div>
+                    <h4>Nam D23 cần 1 bạn nam ghép trọ Triều Khúc</h4>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Phòng 2tr5, đầy đủ điều hòa nóng lạnh. Mình gọn gàng ít nhậu.</p>
+                    <button class="btn-outline" style="margin-top:10px;">Nhắn tin</button>
+                </div>
             </div>
         </div>
     `;
     
     document.getElementById('hoi-dap-content').innerHTML = `
-        <div class="scam-card">
-            <div>
-                <h4>Khu Vạn Phúc ngập nước không?</h4>
-                <p style="color:#64748b; font-size:0.9rem;">Chào mn, mưa to khu Vạn Phúc Hà Đông có bị lụt không ạ?</p>
-                <p style="color:#10b981; font-size:0.8rem; margin-top:5px;"><i class="fa-solid fa-reply"></i> 5 câu trả lời</button>
+        <div style="display:flex; gap:10px; margin-bottom:20px;">
+            <input type="text" id="post-hoi-dap" placeholder="Bạn muốn hỏi gì về khu vực PTIT?" class="req-input" style="flex:1;">
+            <button class="btn-primary" onclick="submitCommunityPost('hoi-dap')">Đăng</button>
+        </div>
+        <div id="hoi-dap-list">
+            <div class="scam-card">
+                <img src="https://ui-avatars.com/api/?name=Hằng" style="width:40px; border-radius:50%; margin-right:15px;">
+                <div>
+                    <h4>Khu Vạn Phúc ngập nước không?</h4>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Chào mn, mưa to khu Vạn Phúc Hà Đông có bị lụt không ạ?</p>
+                    <p style="color:#10b981; font-size:0.8rem; margin-top:5px;"><i class="fa-solid fa-reply"></i> 5 câu trả lời</p>
+                </div>
             </div>
         </div>
     `;
 }
 
+function submitCommunityPost(type) {
+    const input = document.getElementById('post-' + type);
+    const text = input.value.trim();
+    if (!text) return;
+    
+    const list = document.getElementById(type + '-list');
+    const newCard = document.createElement('div');
+    newCard.className = 'scam-card';
+    newCard.style.animation = 'fadeIn 0.5s';
+    
+    let userName = currentUser ? currentUser.name : 'Khách';
+    let userPic = currentUser ? currentUser.picture : 'https://ui-avatars.com/api/?name=K';
+    
+    newCard.innerHTML = `
+        <img src="${userPic}" style="width:40px; border-radius:50%; margin-right:15px;">
+        <div>
+            <h4>${userName}</h4>
+            <p style="color:var(--text-muted); font-size:0.9rem;">${text}</p>
+            <p style="color:#10b981; font-size:0.8rem; margin-top:5px;">Vừa xong</p>
+        </div>
+    `;
+    
+    list.insertBefore(newCard, list.firstChild);
+    input.value = '';
+}
 function switchTab(tabId) {
     document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
     document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
@@ -1040,22 +1079,65 @@ function openHistory() {
 }
 
 
+
 function handleUserChat() {
     const input = document.getElementById('chat-input');
-    const text = input.value.trim();
+    let text = input.value.trim();
     if (!text) return;
     
     input.value = '';
     
     const body = document.getElementById('chat-body');
+    // User message
     body.innerHTML += `<div class="msg user" style="margin-left:auto; text-align:right;">${text}</div>`;
     
+    // Typing indicator
+    const typingId = 'typing-' + Date.now();
+    body.innerHTML += `<div id="${typingId}" class="msg bot typing"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>`;
+    body.scrollTop = body.scrollHeight;
+    
     setTimeout(() => {
-        body.innerHTML += `<div class="msg bot">Cảm ơn bạn đã phản hồi. Hiện tại mình chỉ là chatbot thử nghiệm (Prototype) nên chưa thể hiểu hết ý của bạn. Bạn hãy thử chọn các gợi ý bên trên nhé!</div>`;
+        document.getElementById(typingId).remove();
+        
+        let response = "";
+        let lowerText = text.toLowerCase();
+        
+        // --- SMART AI KNOWLEDGE BASE ---
+        if (lowerText.includes('chào') || lowerText.includes('hello')) {
+            response = "Chào bạn! 👋 Mình là AI của MyRentPlace. Mình có thể giúp gì cho bạn hôm nay?";
+        } 
+        else if (lowerText.includes('lừa đảo') || lowerText.includes('cò mồi') || lowerText.includes('sợ mất')) {
+            response = "Bạn đừng lo nhé! MyRentPlace có hệ thống <b>Tick Xanh</b> đã được xác thực bởi Hội Sinh Viên, cùng tính năng <b>Cọc Trung Gian (Escrow)</b> giúp bảo vệ 100% tiền cọc của bạn. Hãy yên tâm tìm phòng!";
+        }
+        else if (lowerText.includes('rẻ') || lowerText.includes('dưới 2 triệu') || lowerText.includes('< 2 triệu')) {
+            response = "Mình tìm thấy <b>5 phòng</b> đạt Tick Xanh có giá dưới 2 triệu quanh PTIT. Bạn có muốn mình hiển thị lên bản đồ không? <br><br><button class='btn-outline' style='margin-top:5px; font-size:0.8rem;' onclick='handleFilter("cheap")'>Lọc phòng < 2 triệu</button>";
+        }
+        else if (lowerText.includes('hợp đồng') || lowerText.includes('điện nước')) {
+            response = "MyRentPlace hỗ trợ công cụ <b>AI Đọc Hợp Đồng</b>, giúp bạn phát hiện ngay các điều khoản bất lợi (như giá điện cắt cổ hay phạt cọc). Bạn hãy bấm vào nút đọc hợp đồng ở phần Chi tiết phòng nhé.";
+        }
+        else if (lowerText.includes('ồn') || lowerText.includes('an ninh')) {
+            response = "Chuyện nhỏ! Bạn hãy bật tính năng <b>Bản đồ ồn ào</b> ở góc phải màn hình để xem các khu vực thường xuyên bị kẹt xe hoặc gần chợ nhé.";
+        }
+        else {
+            // Fetch a random advice from free API to make it "interesting" when AI doesn't know
+            fetch('https://api.adviceslip.com/advice')
+                .then(res => res.json())
+                .then(data => {
+                    let advice = data.slip.advice;
+                    body.innerHTML += `<div class="msg bot">Mình chưa hiểu ý bạn lắm về phòng trọ. Nhưng nhân tiện, mình tặng bạn một câu châm ngôn ngẫu nhiên từ API nhé: <br><br><i>"${advice}"</i> 🌟</div>`;
+                    body.scrollTop = body.scrollHeight;
+                })
+                .catch(() => {
+                    body.innerHTML += `<div class="msg bot">Xin lỗi, hệ thống AI đang học hỏi nên chưa hiểu rõ ý bạn. Bạn thử dùng các từ khóa như: <b>phòng rẻ</b>, <b>lừa đảo</b>, <b>hợp đồng</b> nhé!</div>`;
+                    body.scrollTop = body.scrollHeight;
+                });
+            return; // exit early for async fetch
+        }
+        
+        body.innerHTML += `<div class="msg bot">${response}</div>`;
         body.scrollTop = body.scrollHeight;
-    }, 1000);
+    }, 1200); // Fake delay for thinking
 }
-
 // Allow Enter key to send chat
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
