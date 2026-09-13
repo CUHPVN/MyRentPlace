@@ -454,6 +454,11 @@ function renderHomeList(data = mockRooms) {
                 </div>
                 <h3>${room.title}</h3>
                 <p class="location"><i class="fa-solid fa-location-dot"></i> ${room.distance}</p>
+                <div style="margin-top:15px; border-top: 1px solid var(--border-color); padding-top:10px;">
+                    <label style="cursor:pointer; display:inline-flex; align-items:center; gap:5px; color:var(--text-muted); font-size:0.95rem; font-weight:500;" onclick="event.stopPropagation()">
+                        <input type="checkbox" onchange="toggleCompare(${room.id}, this)" class="compare-cb" id="cb-${room.id}"> <i class="fa-solid fa-scale-balanced"></i> So sánh phòng
+                    </label>
+                </div>
             </div>
         </div>
     `).join('');
