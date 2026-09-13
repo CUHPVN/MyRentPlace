@@ -541,7 +541,8 @@ function openDetail(id) {
                         <li><span style="color:#64748b;"><i class="fa-solid fa-trash"></i> Rác sinh hoạt</span> <strong>50k / tháng</strong></li>
                     </ul>
                     <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
-                        <button class="book-btn" onclick="openEscrow()" style="width:100%; background:#10b981; border:none;"><i class="fa-solid fa-shield-halved"></i> Đặt Cọc Qua App (Escrow)</button>
+                        <button class="book-btn" onclick="openAIContract()" style="width:100%; background:transparent; border:1px solid #8b5cf6; color:#8b5cf6; margin-bottom:10px;"><i class="fa-solid fa-robot"></i> Nhờ AI Quét Hợp Đồng Mẫu</button>
+                          <button class="book-btn" onclick="openEscrow()" style="width:100%; background:#10b981; border:none;"><i class="fa-solid fa-shield-halved"></i> Đặt Cọc Qua App (Escrow)</button>
                         <div style="display:flex; gap:10px;">
                             <button class="book-btn" onclick="sendRentalRequest(${room.id})" style="flex:1; background:transparent; color:#2563eb; border:1px solid #2563eb;">Liên hệ sđt</button>
                             <button class="save-btn" onclick="toggleSaveRoom(${room.id})" id="save-room-btn-${room.id}" style="padding: 12px 20px; border-radius: 8px; border: 1px solid #cbd5e1; background: transparent; cursor:pointer; color: #ef4444;"><i class="${savedRooms.includes(room.id) ? 'fa-solid' : 'fa-regular'} fa-heart"></i></button>
