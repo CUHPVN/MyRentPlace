@@ -679,7 +679,7 @@ function handleFilter(type) {
     if (type === 'all') {
         currentRooms = sortVerifiedFirst([...mockRooms]);
     } else if (type === 'verified') {
-        currentRooms = mockRooms.filter(r => r.verifiedBy.includes("Công an") || r.verifiedBy.includes("Đoàn"));
+        currentRooms = mockRooms.filter(r => r.verifiedBy);
     } else if (type === 'cheap') {
         // Convert "1,800,000đ" to 1.8 for comparison
         currentRooms = mockRooms.filter(r => {
