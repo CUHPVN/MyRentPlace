@@ -726,3 +726,8 @@ body.dark-mode .leaflet-control-attribution {
 
 #detail-modal { z-index: 10005; }
 #detail-modal .close-btn { z-index: 10006; }
+
+/* Fix Z-Index for all Modals to cover sticky bars */
+.modal { z-index: 20000 !important; }
+.close-btn { z-index: 20001 !important; }
+#detail-modal { z-index: 20005 !important; }
