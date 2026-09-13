@@ -780,3 +780,22 @@ body.dark-mode .leaflet-control-attribution {
 
 /* Make sure Community Modal also has a proper z-index if needed, though 20000 is fine */
 #community-modal { z-index: 20000 !important; }
+
+
+/* --- HEADER FIXES --- */
+
+/* Prevent logo text from wrapping */
+.logo h1 {
+    white-space: nowrap;
+}
+
+/* Ensure header items have spacing and search bar shrinks gracefully */
+.web-header {
+    gap: 20px;
+}
+
+.header-search {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 20px;
+}
