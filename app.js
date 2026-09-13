@@ -886,7 +886,7 @@ function openCommunity() {
         </div>
         <div id="ghep-tro-list">
             <div class="scam-card">
-                <img src="https://ui-avatars.com/api/?name=Long" style="width:40px; border-radius:50%; margin-right:15px;">
+                <img src="https://ui-avatars.com/api/?name=Long" style="width:40px; height:40px; border-radius:50%; margin-right:15px; flex-shrink:0; object-fit:cover;">
                 <div>
                     <h4>Nam D23 cần 1 bạn nam ghép trọ Triều Khúc</h4>
                     <p style="color:var(--text-muted); font-size:0.9rem;">Phòng 2tr5, đầy đủ điều hòa nóng lạnh. Mình gọn gàng ít nhậu.</p>
@@ -903,7 +903,7 @@ function openCommunity() {
         </div>
         <div id="hoi-dap-list">
             <div class="scam-card">
-                <img src="https://ui-avatars.com/api/?name=Hằng" style="width:40px; border-radius:50%; margin-right:15px;">
+                <img src="https://ui-avatars.com/api/?name=Hằng" style="width:40px; height:40px; border-radius:50%; margin-right:15px; flex-shrink:0; object-fit:cover;">
                 <div>
                     <h4>Khu Vạn Phúc ngập nước không?</h4>
                     <p style="color:var(--text-muted); font-size:0.9rem;">Chào mn, mưa to khu Vạn Phúc Hà Đông có bị lụt không ạ?</p>
@@ -928,7 +928,7 @@ function submitCommunityPost(type) {
     let userPic = currentUser ? currentUser.picture : 'https://ui-avatars.com/api/?name=K';
     
     newCard.innerHTML = `
-        <img src="${userPic}" style="width:40px; border-radius:50%; margin-right:15px;">
+        <img src="${userPic}" style="width:40px; height:40px; border-radius:50%; margin-right:15px; flex-shrink:0; object-fit:cover;">
         <div>
             <h4>${userName}</h4>
             <p style="color:var(--text-muted); font-size:0.9rem;">${text}</p>
