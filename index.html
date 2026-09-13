@@ -35,6 +35,7 @@
                 <button id="dark-mode-btn" class="nav-btn" onclick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
                 <button id="history-btn" class="nav-btn" style="display:none;" onclick="openHistory()"><i class="fa-solid fa-clock-rotate-left" style="color:#3b82f6;"></i> Đã liên hệ</button>
                 <button id="saved-rooms-btn" class="nav-btn" style="display:none;" onclick="openSavedRooms()"><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Phòng đã lưu</button>
+                <button class="nav-btn" onclick="openCommunity()"><i class="fa-solid fa-users"></i> Cộng Đồng</button>
                 <button class="nav-btn" onclick="openBlacklist()"><i class="fa-solid fa-shield-halved"></i> Tra cứu lừa đảo</button>
                 <div id="auth-container" style="display: flex; align-items: center; gap: 10px;">
                     <!-- Nút Đăng Nhập Google Tích Hợp -->
@@ -57,6 +58,7 @@
                             <button id="filter-verified" onclick="handleFilter('verified')"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Tick Xanh</button>
                             <button id="filter-cheap" onclick="handleFilter('cheap')">Dưới 2.5 Triệu</button>
                             <button id="filter-near" onclick="handleFilter('near')">Gần PTIT</button>
+                            <button id="filter-alert" onclick="openAlertModal()" style="background:#e0e7ff; color:#4338ca; border-color:#c7d2fe;"><i class="fa-solid fa-bell"></i> Nhận thông báo</button>
                         </div>
                         <div class="sort-box" style="display:flex; align-items:center; gap:8px;">
                             <span style="color:var(--text-muted); font-size:0.9rem;">Sắp xếp:</span>
@@ -77,6 +79,7 @@
             <!-- RIGHT PANEL: BẢN ĐỒ -->
             <section class="right-panel">
                 <button id="locate-btn" class="locate-btn" onclick="locateUser()"><i class="fa-solid fa-location-crosshairs"></i> Vị trí của tôi</button>
+                <button id="heatmap-btn" class="heatmap-btn" onclick="toggleHeatmap()"><i class="fa-solid fa-volume-high"></i> Bản đồ ồn ào</button>
                 <div id="map-container"></div>
             </section>
         </main>
@@ -145,6 +148,112 @@
             </div>
         </div>
     </div>
+
+    
+
+    <!-- COMPARE STICKY BAR -->
+    <div id="compare-bar" class="hidden">
+        <span id="compare-count">0 phòng đang chọn</span>
+        <div>
+            <button class="btn-outline" onclick="clearCompare()">Hủy</button>
+            <button class="btn-primary" onclick="openCompareModal()">So Sánh Ngay</button>
+        </div>
+    </div>
+
+    <!-- MODAL COMPARE -->
+    <div id="compare-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('compare-modal')"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-content" style="max-width: 800px; overflow-x:auto;">
+            <div class="blacklist-header">
+                <h2><i class="fa-solid fa-scale-balanced" style="color:#2563eb;"></i> So Sánh Phòng</h2>
+            </div>
+            <div id="compare-table-container" style="margin-top:20px;"></div>
+        </div>
+    </div>
+
+    <!-- MODAL CỘNG ĐỒNG -->
+    <div id="community-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('community-modal')"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-content" style="max-width: 600px; height: 80vh; display:flex; flex-direction:column;">
+            <div class="blacklist-header">
+                <h2><i class="fa-solid fa-users" style="color:#10b981;"></i> Cộng Đồng PTIT</h2>
+            </div>
+            <div class="tabs" style="display:flex; border-bottom:1px solid #cbd5e1; margin-top:10px;">
+                <button class="tab-btn active" onclick="switchTab('ghep-tro')">Ghép Trọ</button>
+                <button class="tab-btn" onclick="switchTab('hoi-dap')">Hỏi Đáp</button>
+            </div>
+            <div id="ghep-tro-content" class="tab-content" style="flex:1; overflow-y:auto; padding-top:15px;"></div>
+            <div id="hoi-dap-content" class="tab-content hidden" style="flex:1; overflow-y:auto; padding-top:15px;"></div>
+        </div>
+    </div>
+
+    <!-- MODAL ĐĂNG KÝ THÔNG BÁO -->
+    <div id="alert-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('alert-modal')"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="blacklist-header">
+                <h2><i class="fa-solid fa-bell" style="color:#f59e0b;"></i> Nhận Thông Báo</h2>
+            </div>
+            <p style="margin-top:10px; color:#64748b;">Hệ thống sẽ báo qua email khi có phòng đạt Tick Xanh mới phù hợp với bạn.</p>
+            <div style="margin-top:20px; display:flex; flex-direction:column; gap:15px;">
+                <input type="email" placeholder="Email của bạn..." class="req-input">
+                <select class="req-input"><option>Dưới 2.5 Triệu</option><option>Dưới 3.5 Triệu</option></select>
+                <button class="book-btn" onclick="closeModal('alert-modal'); alert('Đăng ký thành công!');">Đăng Ký</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL KYC CHỦ NHÀ -->
+    <div id="kyc-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('kyc-modal')"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="blacklist-header">
+                <h2><i class="fa-solid fa-id-card" style="color:#10b981;"></i> Hồ Sơ Xác Thực Chủ Nhà</h2>
+            </div>
+            <div id="kyc-content" style="margin-top:20px;"></div>
+        </div>
+    </div>
+
+    <!-- MODAL ESCROW -->
+    <div id="escrow-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('escrow-modal')"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-content" style="max-width: 450px;">
+            <div class="blacklist-header">
+                <h2><i class="fa-solid fa-shield-halved" style="color:#2563eb;"></i> Cọc Trung Gian (Escrow)</h2>
+            </div>
+            <div id="escrow-content" style="margin-top:20px;"></div>
+        </div>
+    </div>
+
+    <!-- MODAL AI HỢP ĐỒNG -->
+    <div id="ai-contract-modal" class="modal hidden">
+        <button class="close-btn" onclick="closeModal('ai-contract-modal')"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-content" style="max-width: 700px; height: 80vh; display:flex; flex-direction:column;">
+            <div class="blacklist-header">
+                <h2><i class="fa-solid fa-robot" style="color:#8b5cf6;"></i> AI Phân Tích Hợp Đồng</h2>
+            </div>
+            <div id="ai-contract-content" style="margin-top:20px; flex:1; overflow-y:auto; background:#f8fafc; padding:15px; border-radius:8px; border:1px solid #e2e8f0; line-height:1.6;"></div>
+        </div>
+    </div>
+
+    <!-- CHATBOT FLOATING -->
+    <div id="chatbot-container">
+        <div id="chat-window" class="hidden">
+            <div class="chat-header">
+                <i class="fa-solid fa-robot"></i> Trợ lý MyRentPlace
+                <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; float:right;"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="chat-body">
+                <div class="msg bot">Chào bạn! Mình là AI của MyRentPlace. Bạn cần tìm phòng như thế nào?</div>
+                <div class="chat-chips">
+                    <button onclick="sendMsg('Tìm phòng < 2 triệu')">Tìm phòng < 2 triệu</button>
+                    <button onclick="sendMsg('Cảnh báo lừa đảo')">Cảnh báo lừa đảo</button>
+                </div>
+            </div>
+        </div>
+        <button id="chat-fab" onclick="toggleChat()"><i class="fa-solid fa-comments"></i></button>
+    </div>
+
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

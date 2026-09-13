@@ -441,6 +441,7 @@ function renderHomeList(data = mockRooms) {
     const container = document.getElementById('listing-container');
     if(data.length === 0) { container.innerHTML = '<div style="padding:20px;color:#64748b;">Không tìm thấy phòng trọ nào phù hợp.</div>'; return; }
     container.innerHTML = data.map(room => `
+
         <div class="listing-card" onclick="openDetail(${room.id})">
             <div class="image-wrapper">
                 <img src="${room.img}" alt="Room">
@@ -499,7 +500,27 @@ function openDetail(id) {
                     </div>
                 </div>
 
+                
+                <div class="detailed-rating" style="margin-bottom:20px; background:var(--bg-card); padding:15px; border-radius:8px; border:1px solid var(--border-color);">
+                    <h4 style="margin-bottom:10px; font-size:1rem; color:var(--text-main);">Đánh giá chi tiết</h4>
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
+                        <span style="width:80px; font-size:0.9rem; color:var(--text-muted);">An ninh</span>
+                        <div style="flex:1; background:#cbd5e1; height:8px; border-radius:4px; overflow:hidden;"><div style="width:90%; background:#10b981; height:100%;"></div></div>
+                        <span style="font-size:0.9rem; width:30px; color:var(--text-main);">4.5</span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
+                        <span style="width:80px; font-size:0.9rem; color:var(--text-muted);">Vệ sinh</span>
+                        <div style="flex:1; background:#cbd5e1; height:8px; border-radius:4px; overflow:hidden;"><div style="width:80%; background:#10b981; height:100%;"></div></div>
+                        <span style="font-size:0.9rem; width:30px; color:var(--text-main);">4.0</span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span style="width:80px; font-size:0.9rem; color:var(--text-muted);">Chủ nhà</span>
+                        <div style="flex:1; background:#cbd5e1; height:8px; border-radius:4px; overflow:hidden;"><div style="width:70%; background:#f59e0b; height:100%;"></div></div>
+                        <span style="font-size:0.9rem; width:30px; color:var(--text-main);">3.5</span>
+                    </div>
+                </div>
                 <div class="comments-section">
+
                     <h3><i class="fa-solid fa-comments"></i> Trải nghiệm sinh viên cũ</h3>
                     ${commentsHTML}
                 </div>
@@ -513,11 +534,12 @@ function openDetail(id) {
                         <li><span style="color:#64748b;"><i class="fa-solid fa-droplet"></i> Nước</span> <strong>100k / tháng</strong></li>
                         <li><span style="color:#64748b;"><i class="fa-solid fa-trash"></i> Rác sinh hoạt</span> <strong>50k / tháng</strong></li>
                     </ul>
-                    <div style="display:flex; gap:10px; margin-top:20px;">
-                        <button class="book-btn" style="flex:1;" onclick="sendRentalRequest(${room.id})">Gửi Yêu Cầu Thuê</button>
-                        <button class="save-btn" onclick="toggleSaveRoom(${room.id})" id="save-room-btn-${room.id}" style="padding: 12px 20px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; cursor:pointer; font-weight:600; color: #ef4444;">
-                            <i class="${savedRooms.includes(room.id) ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
-                        </button>
+                    <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
+                        <button class="book-btn" onclick="openEscrow()" style="width:100%; background:#10b981; border:none;"><i class="fa-solid fa-shield-halved"></i> Đặt Cọc Qua App (Escrow)</button>
+                        <div style="display:flex; gap:10px;">
+                            <button class="book-btn" onclick="sendRentalRequest(${room.id})" style="flex:1; background:transparent; color:#2563eb; border:1px solid #2563eb;">Liên hệ sđt</button>
+                            <button class="save-btn" onclick="toggleSaveRoom(${room.id})" id="save-room-btn-${room.id}" style="padding: 12px 20px; border-radius: 8px; border: 1px solid #cbd5e1; background: transparent; cursor:pointer; color: #ef4444;"><i class="${savedRooms.includes(room.id) ? 'fa-solid' : 'fa-regular'} fa-heart"></i></button>
+                        </div>
                     </div>
                     <div style="margin-top:15px;">
                         <button onclick="reportScam(${room.id})" style="width:100%; padding:10px; border-radius:8px; border:1px solid #ef4444; background:#fef2f2; color:#ef4444; font-weight:600; cursor:pointer;">
@@ -771,3 +793,216 @@ window.addEventListener('click', function(event) {
         event.target.classList.add('hidden');
     }
 });
+
+
+// --- NEW PROTOTYPE LOGIC ---
+
+// 1. COMPARE
+let compareList = [];
+function toggleCompare(id, cb) {
+    if (cb.checked) {
+        if (compareList.length >= 3) {
+            alert('Chỉ được so sánh tối đa 3 phòng!');
+            cb.checked = false;
+            return;
+        }
+        compareList.push(id);
+    } else {
+        compareList = compareList.filter(item => item !== id);
+    }
+    updateCompareBar();
+}
+
+function updateCompareBar() {
+    const bar = document.getElementById('compare-bar');
+    if (compareList.length > 0) {
+        bar.classList.remove('hidden');
+        document.getElementById('compare-count').innerText = `${compareList.length} phòng đang chọn (Tối đa 3)`;
+    } else {
+        bar.classList.add('hidden');
+    }
+}
+
+function clearCompare() {
+    compareList = [];
+    document.querySelectorAll('.compare-cb').forEach(cb => cb.checked = false);
+    updateCompareBar();
+}
+
+function openCompareModal() {
+    if (compareList.length < 2) {
+        alert("Hãy chọn ít nhất 2 phòng để so sánh!");
+        return;
+    }
+    const roomsToCompare = compareList.map(id => mockRooms.find(r => r.id === id));
+    
+    let headers = '<th>Tiêu chí</th>';
+    let rowPrice = '<td>Giá thuê</td>';
+    let rowDist = '<td>Khoảng cách PTIT</td>';
+    let rowElec = '<td>Giá Điện</td>';
+    let rowWater = '<td>Giá Nước</td>';
+    let rowAction = '<td></td>';
+
+    roomsToCompare.forEach(r => {
+        headers += `<th>${r.title}</th>`;
+        rowPrice += `<td style="font-weight:bold; color:#ef4444;">${r.price}</td>`;
+        rowDist += `<td>${r.distance}</td>`;
+        rowElec += `<td>${r.elec}</td>`;
+        rowWater += `<td>${r.water}</td>`;
+        rowAction += `<td><button class="book-btn" onclick="openDetail(${r.id})">Xem</button></td>`;
+    });
+
+    const tableHTML = `
+        <table class="compare-table">
+            <thead><tr>${headers}</tr></thead>
+            <tbody>
+                <tr>${rowPrice}</tr>
+                <tr>${rowDist}</tr>
+                <tr>${rowElec}</tr>
+                <tr>${rowWater}</tr>
+                <tr>${rowAction}</tr>
+            </tbody>
+        </table>
+    `;
+    document.getElementById('compare-table-container').innerHTML = tableHTML;
+    document.getElementById('compare-modal').classList.remove('hidden');
+}
+
+// 2. COMMUNITY & ALERTS
+function openCommunity() {
+    document.getElementById('community-modal').classList.remove('hidden');
+    switchTab('ghep-tro');
+    
+    document.getElementById('ghep-tro-content').innerHTML = `
+        <div class="scam-card">
+            <img src="https://ui-avatars.com/api/?name=Long" style="width:40px; border-radius:50%; margin-right:15px;">
+            <div>
+                <h4>Nam D23 cần 1 bạn nam ghép trọ Triều Khúc</h4>
+                <p style="color:#64748b; font-size:0.9rem;">Phòng 2tr5, đầy đủ điều hòa nóng lạnh. Mình gọn gàng ít nhậu.</p>
+                <button class="btn-outline" style="margin-top:10px;">Nhắn tin</button>
+            </div>
+        </div>
+    `;
+    
+    document.getElementById('hoi-dap-content').innerHTML = `
+        <div class="scam-card">
+            <div>
+                <h4>Khu Vạn Phúc ngập nước không?</h4>
+                <p style="color:#64748b; font-size:0.9rem;">Chào mn, mưa to khu Vạn Phúc Hà Đông có bị lụt không ạ?</p>
+                <p style="color:#10b981; font-size:0.8rem; margin-top:5px;"><i class="fa-solid fa-reply"></i> 5 câu trả lời</button>
+            </div>
+        </div>
+    `;
+}
+
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(tabId + '-content').classList.remove('hidden');
+    event.target.classList.add('active');
+}
+
+function openAlertModal() {
+    document.getElementById('alert-modal').classList.remove('hidden');
+}
+
+// 3. KYC, ESCROW, AI CONTRACT
+function openKYC() {
+    document.getElementById('kyc-content').innerHTML = `
+        <div style="border:1px solid #e2e8f0; border-radius:8px; padding:15px; margin-bottom:15px;">
+            <div style="display:flex; justify-content:space-between;"><span>Căn cước công dân:</span> <span style="color:#10b981; font-weight:bold;"><i class="fa-solid fa-check"></i> Đã đối chiếu</span></div>
+            <div style="display:flex; justify-content:space-between; margin-top:10px;"><span>Sổ đỏ / Quyền sở hữu:</span> <span style="color:#10b981; font-weight:bold;"><i class="fa-solid fa-check"></i> Đã đối chiếu</span></div>
+        </div>
+        <h4>Timeline Xác Thực</h4>
+        <div style="margin-top:10px; border-left:2px solid #cbd5e1; padding-left:15px; position:relative;">
+            <div style="margin-bottom:15px;"><b style="color:#64748b;">01/09:</b> Chủ nhà gửi hồ sơ lên app</div>
+            <div style="margin-bottom:15px;"><b style="color:#64748b;">03/09:</b> Đội Sinh viên tình nguyện đến quay video</div>
+            <div><b style="color:#10b981;">05/09:</b> Cấp Tick Xanh và mở đăng</div>
+        </div>
+    `;
+    document.getElementById('kyc-modal').classList.remove('hidden');
+}
+
+function openEscrow() {
+    document.getElementById('escrow-content').innerHTML = `
+        <div style="text-align:center; padding:10px;">
+            <i class="fa-solid fa-building-lock" style="font-size:3rem; color:#2563eb; margin-bottom:15px;"></i>
+            <h3>Thanh toán tiền cọc: 2,000,000đ</h3>
+            <p style="color:#64748b; margin-top:10px; font-size:0.9rem;">Số tiền này sẽ được giữ tại ví trung gian của MyRentPlace. Khi bạn chuyển đến ở và xác nhận phòng đúng như thực tế, tiền mới được chuyển cho chủ nhà.</p>
+            <button class="book-btn" style="width:100%; margin-top:20px;" onclick="alert('Mô phỏng thanh toán VNPay/Momo thành công!'); closeModal('escrow-modal');">Thanh toán ngay bằng Momo</button>
+        </div>
+    `;
+    document.getElementById('escrow-modal').classList.remove('hidden');
+}
+
+function openAIContract() {
+    document.getElementById('ai-contract-content').innerHTML = `
+        <h3 style="text-align:center; margin-bottom:20px;">HỢP ĐỒNG THUÊ NHÀ (MẪU)</h3>
+        <p>Bên A: Nguyễn Văn Chủ</p>
+        <p>Bên B: Bạn</p>
+        <p>Điều 1: Tiền thuê nhà là 2,500,000đ/tháng. Thanh toán vào mùng 1 hàng tháng.</p>
+        <p>Điều 2: Tiền điện là <span style="background:#fef08a; padding:2px; border-radius:3px; cursor:pointer;" title="AI Đánh giá: Giá điện 4k/số cao hơn 500đ so với mặt bằng chung (3.5k)">4,000đ/số (⚠️)</span>.</p>
+        <p>Điều 3: Nếu bên B chấm dứt hợp đồng trước hạn, <span style="background:#fecaca; padding:2px; border-radius:3px; cursor:pointer;" title="AI Đánh giá: Điều khoản bất lợi! Bạn sẽ mất toàn bộ cọc.">Bên B sẽ mất 100% tiền cọc và phạt 1 tháng tiền nhà (🚨)</span>.</p>
+        <div style="margin-top:20px; padding:10px; background:#fff; border-radius:8px; border:1px solid #cbd5e1;">
+            <strong>🤖 AI Tóm tắt:</strong> Hợp đồng có 2 điểm cần lưu ý về giá điện và mức phạt. Khuyên bạn nên thương lượng lại Điều 3 trước khi ký.
+        </div>
+    `;
+    document.getElementById('ai-contract-modal').classList.remove('hidden');
+}
+
+// 4. CHATBOT
+function toggleChat() {
+    const w = document.getElementById('chat-window');
+    w.classList.toggle('hidden');
+}
+
+function sendMsg(text) {
+    const body = document.getElementById('chat-body');
+    body.innerHTML += `<div class="msg user" style="background:#e2e8f0; margin-left:auto; text-align:right;">${text}</div>`;
+    
+    setTimeout(() => {
+        if(text.includes('< 2 triệu')) {
+            body.innerHTML += `<div class="msg bot">Đây là một số phòng Tick Xanh dưới 2 triệu bạn nên xem: <br><a href="#" onclick="openDetail(2)" style="color:#2563eb;">Phòng Mỗ Lao (1.8tr)</a></div>`;
+        } else {
+            body.innerHTML += `<div class="msg bot">Khu vực quanh chợ Phùng Khoang dạo này có 2 ca báo cáo lừa cọc. Bạn hãy dùng công cụ Tra Cứu ở góc phải trên cùng nhé!</div>`;
+        }
+        body.scrollTop = body.scrollHeight;
+    }, 800);
+}
+
+// 5. HEATMAP (Bản đồ tiếng ồn)
+let heatmapLayers = [];
+let heatmapOn = false;
+function toggleHeatmap() {
+    heatmapOn = !heatmapOn;
+    const btn = document.getElementById('heatmap-btn');
+    if (heatmapOn) {
+        btn.style.background = '#fef2f2';
+        btn.style.color = '#ef4444';
+        btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Tắt bản đồ ồn';
+        
+        // Add fake noise circles
+        const noiseData = [
+            [20.985, 105.789, 500, 'red'], // Chợ Phùng Khoang
+            [20.975, 105.780, 400, 'orange'] // Ngã tư Nguyễn Trãi
+        ];
+        
+        noiseData.forEach(d => {
+            const circle = L.circle([d[0], d[1]], {
+                color: d[3],
+                fillColor: d[3],
+                fillOpacity: 0.3,
+                radius: d[2]
+            }).addTo(map).bindPopup("Khu vực ồn ào (Gần chợ/Ngã tư)");
+            heatmapLayers.push(circle);
+        });
+    } else {
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Bản đồ ồn ào';
+        
+        heatmapLayers.forEach(l => map.removeLayer(l));
+        heatmapLayers = [];
+    }
+}
+
