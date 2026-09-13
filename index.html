@@ -250,6 +250,10 @@
                     <button onclick="sendMsg('Cảnh báo lừa đảo')">Cảnh báo lừa đảo</button>
                 </div>
             </div>
+            <div class="chat-input-area" style="display:flex; border-top:1px solid var(--border-color); padding:10px; background:var(--bg-card);">
+                <input type="text" id="chat-input" placeholder="Nhắn tin..." style="flex:1; border:none; outline:none; background:transparent; color:var(--text-main); font-family:'Inter', sans-serif;">
+                <button onclick="handleUserChat()" style="background:none; border:none; color:#2563eb; cursor:pointer; font-size:1.1rem; padding:0 10px;"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
         </div>
         <button id="chat-fab" onclick="toggleChat()"><i class="fa-solid fa-comments"></i></button>
     </div>

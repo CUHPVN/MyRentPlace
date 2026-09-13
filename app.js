@@ -1038,3 +1038,32 @@ function openHistory() {
     container.innerHTML = '<div style="text-align:center; padding:40px; color:var(--text-muted);"><i class="fa-solid fa-clock-rotate-left" style="font-size:3rem; margin-bottom:15px;"></i><br>Bạn chưa liên hệ chủ nhà nào.</div>';
     document.getElementById('history-modal').classList.remove('hidden');
 }
+
+
+function handleUserChat() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text) return;
+    
+    input.value = '';
+    
+    const body = document.getElementById('chat-body');
+    body.innerHTML += `<div class="msg user" style="margin-left:auto; text-align:right;">${text}</div>`;
+    
+    setTimeout(() => {
+        body.innerHTML += `<div class="msg bot">Cảm ơn bạn đã phản hồi. Hiện tại mình chỉ là chatbot thử nghiệm (Prototype) nên chưa thể hiểu hết ý của bạn. Bạn hãy thử chọn các gợi ý bên trên nhé!</div>`;
+        body.scrollTop = body.scrollHeight;
+    }, 1000);
+}
+
+// Allow Enter key to send chat
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const input = document.getElementById('chat-input');
+        if (input) {
+            input.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') handleUserChat();
+            });
+        }
+    }, 1000);
+});
