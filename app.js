@@ -1026,10 +1026,15 @@ function toggleHeatmap() {
         btn.style.background = '#fee2e2';
         btn.style.color = '#ef4444';
         
-        // Add fake noise circles
         const noiseData = [
-            [20.985, 105.789, 500, 'red'], // Chợ Phùng Khoang
-            [20.975, 105.780, 400, 'orange'] // Ngã tư Nguyễn Trãi
+            [20.985, 105.789, 500, 'red', 'Chợ Phùng Khoang (Nhộn nhịp, ồn ào)'],
+            [20.975, 105.780, 400, 'orange', 'Ngã tư Nguyễn Trãi (Thường xuyên kẹt xe)'],
+            [20.978, 105.795, 450, 'red', 'Chợ Triều Khúc (Đông đúc, ngập úng)'],
+            [21.000, 105.798, 550, 'red', 'Ngã tư Khuất Duy Tiến (Cực kỳ ồn, nhiều xe tải)'],
+            [20.982, 105.785, 300, 'orange', 'Phố Ao Sen (Khu ăn uống sầm uất)'],
+            [20.990, 105.805, 450, 'orange', 'Khu Công Nghiệp Thanh Xuân (Khói bụi, ồn ào)'],
+            [20.965, 105.770, 350, 'red', 'Khu Xa La (Đông dân cư, kẹt xe giờ cao điểm)'],
+            [20.970, 105.790, 300, 'orange', 'Đường Chiến Thắng (Chợ tự phát, đông đúc)']
         ];
         
         noiseData.forEach(d => {
@@ -1037,8 +1042,9 @@ function toggleHeatmap() {
                 color: d[3],
                 fillColor: d[3],
                 fillOpacity: 0.3,
-                radius: d[2]
-            }).addTo(map).bindPopup("Khu vực ồn ào (Gần chợ/Ngã tư)");
+                radius: d[2],
+                weight: 2
+            }).addTo(map).bindPopup("<b>Cảnh báo:</b><br>" + d[4]);
             heatmapLayers.push(circle);
         });
     } else {
