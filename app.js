@@ -762,7 +762,6 @@ function focusOnMap(lat, lng) {
 
 function sendRentalRequest(roomId) {
     requestingRoomId = roomId;
-    closeModal('detail-modal');
     document.getElementById('request-modal').classList.remove('hidden');
 }
 
