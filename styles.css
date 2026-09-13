@@ -483,3 +483,98 @@ body.dark-mode .leaflet-control-attribution {
     padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; width: 100%;
     font-family: 'Inter', sans-serif; background: var(--bg-color); color: var(--text-main);
 }
+
+/* --- PERFECTING UI: DARK MODE & RESPONSIVE --- */
+
+/* Dark Mode Overrides for new elements */
+[data-theme="dark"] #compare-bar {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+[data-theme="dark"] .compare-table th {
+    background: var(--bg-color);
+    color: var(--text-main);
+}
+[data-theme="dark"] .compare-table td {
+    color: var(--text-main);
+}
+[data-theme="dark"] #chat-window {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+[data-theme="dark"] .msg.bot {
+    background: var(--bg-color);
+    color: var(--text-main);
+}
+[data-theme="dark"] .msg.user {
+    background: #3b82f6;
+    color: #fff;
+}
+[data-theme="dark"] .chat-chips button {
+    border-color: var(--text-muted);
+}
+[data-theme="dark"] .detailed-rating {
+    background: var(--bg-color) !important;
+}
+[data-theme="dark"] .scam-card {
+    background: var(--bg-card);
+}
+[data-theme="dark"] #ai-contract-content {
+    background: var(--bg-color) !important;
+    color: var(--text-main);
+}
+[data-theme="dark"] .req-input {
+    background: var(--bg-color);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+[data-theme="dark"] #escrow-content p {
+    color: var(--text-muted) !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .web-main {
+        flex-direction: column-reverse;
+    }
+    .left-panel, .right-panel {
+        width: 100%;
+        height: 50vh; /* split screen on mobile */
+    }
+    .right-panel {
+        border-left: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .header-search {
+        display: none; /* Hide large search bar on mobile header */
+    }
+    .header-actions {
+        flex: 1;
+        justify-content: flex-end;
+    }
+    .grid-listing {
+        grid-template-columns: 1fr;
+    }
+    #compare-bar {
+        width: 90%;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        bottom: 10px;
+    }
+    #chatbot-container {
+        bottom: 10px;
+        right: 10px;
+    }
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+    .detail-right {
+        position: static;
+        margin-top: 20px;
+    }
+}

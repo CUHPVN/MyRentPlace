@@ -1006,3 +1006,30 @@ function toggleHeatmap() {
     }
 }
 
+
+
+function openSavedRooms() {
+    const container = document.getElementById('saved-list-container');
+    if (savedRooms.length === 0) {
+        container.innerHTML = '<div style="text-align:center; padding:40px; color:var(--text-muted);"><i class="fa-regular fa-heart" style="font-size:3rem; margin-bottom:15px;"></i><br>Bạn chưa lưu phòng nào.</div>';
+    } else {
+        const rooms = mockRooms.filter(r => savedRooms.includes(r.id));
+        container.innerHTML = rooms.map(room => `
+            <div class="listing-card" style="display:flex; flex-direction:row; gap:15px;">
+                <img src="${room.img}" style="width:120px; height:100px; object-fit:cover; border-radius:8px;">
+                <div>
+                    <h4 style="font-size:1.1rem; margin-bottom:5px;">${room.title}</h4>
+                    <p style="color:#ef4444; font-weight:bold;">${room.price}</p>
+                    <button onclick="openDetail(${room.id})" class="btn-outline" style="margin-top:10px; padding:5px 10px;">Xem lại</button>
+                </div>
+            </div>
+        `).join('');
+    }
+    document.getElementById('saved-modal').classList.remove('hidden');
+}
+
+function openHistory() {
+    const container = document.getElementById('history-list-container');
+    container.innerHTML = '<div style="text-align:center; padding:40px; color:var(--text-muted);"><i class="fa-solid fa-clock-rotate-left" style="font-size:3rem; margin-bottom:15px;"></i><br>Bạn chưa liên hệ chủ nhà nào.</div>';
+    document.getElementById('history-modal').classList.remove('hidden');
+}
