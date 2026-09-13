@@ -466,6 +466,7 @@ function renderHomeList(data = mockRooms) {
 
 // --- MODAL LOGIC (Web dùng Modal thay vì chuyển View) ---
 function openDetail(id) {
+    document.getElementById('compare-modal').classList.add('hidden');
     const room = mockRooms.find(r => r.id === id);
     const numComments = Math.floor(Math.random() * 2) + 2;
     let commentsHTML = '';

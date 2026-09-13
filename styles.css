@@ -723,3 +723,6 @@ body.dark-mode .leaflet-control-attribution {
 .tab-content:not(.hidden) {
     animation: fadeIn 0.4s ease-out;
 }
+
+#detail-modal { z-index: 10005; }
+#detail-modal .close-btn { z-index: 10006; }
