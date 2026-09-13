@@ -35,8 +35,8 @@
                 <button id="dark-mode-btn" class="nav-btn" onclick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
                 <button id="history-btn" class="nav-btn" style="display:none;" onclick="openHistory()"><i class="fa-solid fa-clock-rotate-left" style="color:#3b82f6;"></i> Đã liên hệ</button>
                 <button id="saved-rooms-btn" class="nav-btn" style="display:none;" onclick="openSavedRooms()"><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Phòng đã lưu</button>
-                <button class="nav-btn" onclick="openCommunity()"><i class="fa-solid fa-users"></i> Cộng Đồng</button>
-                <button class="nav-btn" onclick="openBlacklist()"><i class="fa-solid fa-shield-halved"></i> Tra cứu lừa đảo</button>
+                <button class="nav-btn icon-only" onclick="openCommunity()" title="Cộng Đồng"><i class="fa-solid fa-users"></i></button>
+                <button class="nav-btn icon-only" onclick="openBlacklist()" title="Tra cứu lừa đảo"><i class="fa-solid fa-shield-halved"></i></button>
                 <div id="auth-container" style="display: flex; align-items: center; gap: 10px;">
                     <!-- Nút Đăng Nhập Google Tích Hợp -->
                     <div id="google-btn-wrapper"></div>
@@ -58,7 +58,7 @@
                             <button id="filter-verified" onclick="handleFilter('verified')"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Tick Xanh</button>
                             <button id="filter-cheap" onclick="handleFilter('cheap')">Dưới 2.5 Triệu</button>
                             <button id="filter-near" onclick="handleFilter('near')">Gần PTIT</button>
-                            <button id="filter-alert" onclick="openAlertModal()" style="background:#e0e7ff; color:#4338ca; border-color:#c7d2fe;"><i class="fa-solid fa-bell"></i> Nhận thông báo</button>
+                            <button id="filter-alert" class="alert-chip" onclick="openAlertModal()"><i class="fa-solid fa-bell"></i> Nhận thông báo</button>
                         </div>
                         <div class="sort-box" style="display:flex; align-items:center; gap:8px;">
                             <span style="color:var(--text-muted); font-size:0.9rem;">Sắp xếp:</span>
@@ -78,8 +78,8 @@
 
             <!-- RIGHT PANEL: BẢN ĐỒ -->
             <section class="right-panel">
-                <button id="locate-btn" class="locate-btn" onclick="locateUser()"><i class="fa-solid fa-location-crosshairs"></i> Vị trí của tôi</button>
-                <button id="heatmap-btn" class="heatmap-btn" onclick="toggleHeatmap()"><i class="fa-solid fa-volume-high"></i> Bản đồ ồn ào</button>
+                <button id="locate-btn" class="map-icon-btn" onclick="locateUser()" title="Vị trí của tôi"><i class="fa-solid fa-location-crosshairs"></i></button>
+                <button id="heatmap-btn" class="map-icon-btn heatmap" onclick="toggleHeatmap()" title="Bản đồ ồn ào"><i class="fa-solid fa-volume-high"></i></button>
                 <div id="map-container"></div>
             </section>
         </main>
@@ -152,7 +152,7 @@
     
 
     <!-- COMPARE STICKY BAR -->
-    <div id="compare-bar" class="hidden">
+    <div id="compare-bar" class="hidden" style="display:none;">
         <span id="compare-count">0 phòng đang chọn</span>
         <div>
             <button class="btn-outline" onclick="clearCompare()">Hủy</button>

@@ -821,10 +821,10 @@ function toggleCompare(id, cb) {
 function updateCompareBar() {
     const bar = document.getElementById('compare-bar');
     if (compareList.length > 0) {
-        bar.classList.remove('hidden');
+        bar.classList.remove('hidden'); bar.style.display = 'flex';
         document.getElementById('compare-count').innerText = `${compareList.length} phòng đang chọn (Tối đa 3)`;
     } else {
-        bar.classList.add('hidden');
+        bar.classList.add('hidden'); bar.style.display = 'none';
     }
 }
 
@@ -978,13 +978,13 @@ function sendMsg(text) {
 // 5. HEATMAP (Bản đồ tiếng ồn)
 let heatmapLayers = [];
 let heatmapOn = false;
+
 function toggleHeatmap() {
     heatmapOn = !heatmapOn;
     const btn = document.getElementById('heatmap-btn');
     if (heatmapOn) {
-        btn.style.background = '#fef2f2';
+        btn.style.background = '#fee2e2';
         btn.style.color = '#ef4444';
-        btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Tắt bản đồ ồn';
         
         // Add fake noise circles
         const noiseData = [
@@ -1004,12 +1004,12 @@ function toggleHeatmap() {
     } else {
         btn.style.background = '';
         btn.style.color = '';
-        btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Bản đồ ồn ào';
         
         heatmapLayers.forEach(l => map.removeLayer(l));
         heatmapLayers = [];
     }
 }
+
 
 
 
