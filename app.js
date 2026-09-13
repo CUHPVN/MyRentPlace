@@ -821,10 +821,10 @@ function toggleCompare(id, cb) {
 function updateCompareBar() {
     const bar = document.getElementById('compare-bar');
     if (compareList.length > 0) {
-        bar.classList.remove('hidden'); bar.style.display = 'flex';
+        bar.classList.remove('hidden');
         document.getElementById('compare-count').innerText = `${compareList.length} phòng đang chọn (Tối đa 3)`;
     } else {
-        bar.classList.add('hidden'); bar.style.display = 'none';
+        bar.classList.add('hidden');
     }
 }
 
