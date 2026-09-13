@@ -1110,7 +1110,7 @@ function handleUserChat() {
             response = "Bạn đừng lo nhé! MyRentPlace có hệ thống <b>Tick Xanh</b> đã được xác thực bởi Hội Sinh Viên, cùng tính năng <b>Cọc Trung Gian (Escrow)</b> giúp bảo vệ 100% tiền cọc của bạn. Hãy yên tâm tìm phòng!";
         }
         else if (lowerText.includes('rẻ') || lowerText.includes('dưới 2 triệu') || lowerText.includes('< 2 triệu')) {
-            response = "Mình tìm thấy <b>5 phòng</b> đạt Tick Xanh có giá dưới 2 triệu quanh PTIT. Bạn có muốn mình hiển thị lên bản đồ không? <br><br><button class='btn-outline' style='margin-top:5px; font-size:0.8rem;' onclick='handleFilter("cheap")'>Lọc phòng < 2 triệu</button>";
+            response = "Mình tìm thấy <b>5 phòng</b> đạt Tick Xanh có giá dưới 2 triệu quanh PTIT. Bạn có muốn mình hiển thị lên bản đồ không? <br><br><button class='btn-outline' style='margin-top:5px; font-size:0.8rem;' onclick='handleFilter(&quot;cheap&quot;)'>Lọc phòng < 2 triệu</button>";
         }
         else if (lowerText.includes('hợp đồng') || lowerText.includes('điện nước')) {
             response = "MyRentPlace hỗ trợ công cụ <b>AI Đọc Hợp Đồng</b>, giúp bạn phát hiện ngay các điều khoản bất lợi (như giá điện cắt cổ hay phạt cọc). Bạn hãy bấm vào nút đọc hợp đồng ở phần Chi tiết phòng nhé.";
