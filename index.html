@@ -97,12 +97,11 @@
     <div id="blacklist-modal" class="modal hidden">
         <button class="close-btn" onclick="closeModal('blacklist-modal')"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-content">
-            <div class="blacklist-header">
-                <h2><i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;"></i> Danh Sách Đen Cò Mồi</h2>
-                <div class="search-bar alert-search">
-                    <i class="fa-solid fa-search"></i>
-                    <input type="text" id="blacklist-search-input" placeholder="Nhập Số điện thoại chủ nhà để tra cứu..." onkeyup="handleBlacklistSearch()">
-                </div>
+            <h2 style="color:var(--danger); text-align:center;"><i class="fa-solid fa-triangle-exclamation"></i> Danh Sách Đen Cò Mồi</h2>
+            <button class="book-btn" onclick="openAIContract(); closeModal('blacklist-modal');" style="width:100%; background:transparent; border:2px dashed #8b5cf6; color:#8b5cf6; margin-bottom:20px; font-size:1.1rem;"><i class="fa-solid fa-robot"></i> Dùng AI Phân Tích Hợp Đồng</button>
+            <div class="alert-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="blacklist-search-input" placeholder="Nhập SĐT, STK Ngân hàng hoặc Link Facebook để tra cứu..." onkeyup="handleBlacklistSearch()">
             </div>
             <div id="scam-list-container" class="scam-list"></div>
         </div>
